@@ -44,6 +44,11 @@
 
 ---
 
+## 🚀 Projects
+- 🛰️ Neon Space Duel → https://SercanOzkan55.github.io/space-duel/
+- 🍔 FoodApp (PHP + MySQL) → https://github.com/SercanOzkan55/FoodApp
+
+
 ## 🔗 Links
 <p align="center">
   <a href="https://www.instagram.com/sercan.ozkn55/" target="_blank">
