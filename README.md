@@ -1,19 +1,28 @@
-<h1 align="center">Hey 👋 I'm Sercan</h1>
+<h1 align="center">Sercan Özkan</h1>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=2500&pause=700&color=00F7FF&center=true&vCenter=true&width=500&lines=Computer+Engineering+Student;Building+cool+projects;Learning+Software+%26+Systems;Welcome+to+my+GitHub+%F0%9F%94%A5" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=2500&pause=700&color=00E5FF&center=true&vCenter=true&width=650&lines=Computer+Engineering+Student;Neon+Space+Vibes+%F0%9F%9A%80;Building+cool+projects;Backend+%2F+Desktop+%2F+Systems;Welcome+to+my+GitHub+%F0%9F%94%A5" />
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=KULLANICIADIN&label=Profile%20views&color=0e75b6&style=flat" />
+  <img src="https://komarev.com/ghpvc/?username=KULLANICIADIN&label=Profile%20views&color=00E5FF&style=flat" />
+</p>
+
+---
+
+## 🛰️ Neon Space Duel (Mini Game)
+<p align="center">
+  <a href="https://KULLANICIADIN.github.io/space-duel/">
+    <img src="https://img.shields.io/badge/PLAY%20NEON%20SPACE%20DUEL-00E5FF?style=for-the-badge&logo=github&logoColor=0b1220" />
+  </a>
 </p>
 
 ---
 
 ## 🚀 About Me
-- 🎯 I love building **cool apps & systems**
-- 🧠 Currently learning: **Backend / Desktop Apps / Computer Architecture**
-- ⚡ Goal: Make my GitHub look **clean + pro + impressive**
+- 🎯 Computer Engineering student, building **clean & impressive projects**
+- 🧠 Interested in: **Backend / Desktop Apps / Systems / Performance**
+- ⚡ Goal: Make my GitHub look **modern + strong + unique**
 
 ---
 
@@ -38,16 +47,17 @@
 
 ## 🔗 Links
 <p align="center">
-  <a href="https://instagram.com/USERNAME">
-    <img src="https://img.shields.io/badge/Instagram-111?style=for-the-badge&logo=instagram&logoColor=white"/>
+  <a href="https://www.instagram.com/sercan.ozkn55/" target="_blank">
+    <img src="https://img.shields.io/badge/Instagram-00E5FF?style=for-the-badge&logo=instagram&logoColor=0b1220" />
   </a>
-  <a href="https://linkedin.com/in/USERNAME">
-    <img src="https://img.shields.io/badge/LinkedIn-111?style=for-the-badge&logo=linkedin&logoColor=white"/>
+  <a href="https://www.linkedin.com/in/sercan-özkan-a205852a7/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-00E5FF?style=for-the-badge&logo=linkedin&logoColor=0b1220" />
   </a>
 </p>
 
 ---
 
 <p align="center">
-  ⭐ If you like my projects, don't forget to star!
+  ✨ Neon mode ON — thanks for visiting!
 </p>
+
