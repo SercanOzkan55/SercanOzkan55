@@ -39,10 +39,6 @@
 </p>
 
 <p align="center">
-  <img height="175" src="https://streak-stats.demolab.com?user=SercanOzkan55&theme=tokyonight&hide_border=true" />
-</p>
-
-<p align="center">
   <img height="165" src="https://github-stats-alpha.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&cc=0b1220&tc=00E5FF&bc=0b1220" />
 </p>
 
