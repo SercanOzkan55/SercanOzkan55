@@ -5,14 +5,14 @@
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=KULLANICIADIN&label=Profile%20views&color=00E5FF&style=flat" />
+  <img src="https://komarev.com/ghpvc/?username=SercanOzkan55&label=Profile%20views&color=00E5FF&style=flat" />
 </p>
 
 ---
 
 ## 🛰️ Neon Space Duel (Mini Game)
 <p align="center">
-  <a href="https://KULLANICIADIN.github.io/space-duel/">
+  <a href="https://SercanOzkan55.github.io/space-duel/">
     <img src="https://img.shields.io/badge/PLAY%20NEON%20SPACE%20DUEL-00E5FF?style=for-the-badge&logo=github&logoColor=0b1220" />
   </a>
 </p>
@@ -35,12 +35,12 @@
 
 ## 📊 GitHub Stats
 <p align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=KULLANICIADIN&show_icons=true&theme=tokyonight&hide_border=true" />
-  <img height="170" src="https://github-readme-streak-stats.herokuapp.com/?user=KULLANICIADIN&theme=tokyonight&hide_border=true" />
+  <img height="170" src="https://github-readme-stats.vercel.app/api?username=SercanOzkan55&show_icons=true&theme=tokyonight&hide_border=true&cache_seconds=7200" />
+  <img height="170" src="https://streak-stats.demolab.com?user=SercanOzkan55&theme=tokyonight&hide_border=true&cache_seconds=7200" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=KULLANICIADIN&layout=compact&theme=tokyonight&hide_border=true" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=7200" />
 </p>
 
 ---
@@ -60,4 +60,5 @@
 <p align="center">
   ✨ Neon mode ON — thanks for visiting!
 </p>
+
 
