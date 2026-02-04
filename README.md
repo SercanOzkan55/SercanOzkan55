@@ -20,9 +20,9 @@
 ---
 
 ## 🚀 About Me
-- 🎯 Computer Engineering student, building **clean & impressive projects**
-- 🧠 Interested in: **Backend / Desktop Apps / Systems / Performance**
-- ⚡ Goal: Make my GitHub look **modern + strong + unique**
+- 🎯 Computer Engineering student, building clean & impressive projects  
+- 🧠 Interested in: **Backend / Desktop Apps / Systems / Performance**  
+- ⚡ Goal: Make my GitHub look **modern + strong + unique**  
 
 ---
 
@@ -35,12 +35,15 @@
 
 ## 📊 GitHub Stats
 <p align="center">
-  <img height="170" src="https://github-stats-alpha.vercel.app/api?username=SercanOzkan55&cc=0b1220&tc=00E5FF&ic=00E5FF&bc=0b1220" />
-  <img height="170" src="https://streak-stats.demolab.com?user=SercanOzkan55&theme=tokyonight&hide_border=true" />
+  <img height="175" src="https://github-stats-alpha.vercel.app/api?username=SercanOzkan55&cc=0b1220&tc=00E5FF&ic=00E5FF&bc=0b1220" />
 </p>
 
 <p align="center">
-  <img src="https://github-stats-alpha.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&cc=0b1220&tc=00E5FF&bc=0b1220" />
+  <img height="175" src="https://streak-stats.demolab.com?user=SercanOzkan55&theme=tokyonight&hide_border=true" />
+</p>
+
+<p align="center">
+  <img height="165" src="https://github-stats-alpha.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&cc=0b1220&tc=00E5FF&bc=0b1220" />
 </p>
 
 ---
@@ -60,5 +63,3 @@
 <p align="center">
   ✨ Neon mode ON — thanks for visiting!
 </p>
-
-
