@@ -4,6 +4,13 @@
   <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=24&duration=2300&pause=700&color=00E5FF&center=true&vCenter=true&width=900&lines=Building+AI-powered+software+projects;CV+Analyzer+%7C+ATS+Scoring+%7C+Resume+Insights;Backend+%2B+Desktop+%2B+Systems+Mindset;Clean+Code.+Smart+Projects.+Modern+Portfolio." />
 </p>
 
+<!-- Live Portfolio CTA Button -->
+<p align="center">
+  <a href="https://SercanOzkan55.github.io/SercanOzkan55/" target="_blank">
+    <img src="https://img.shields.io/badge/%F0%9F%8C%90%20ENTER%20INTERACTIVE%20PORTFOLIO-020617?style=for-the-badge&logo=googlechrome&logoColor=00E5FF&labelColor=020617" height="42" />
+  </a>
+</p>
+
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=SercanOzkan55&label=Profile%20Views&color=00E5FF&style=for-the-badge" />
   <img src="https://img.shields.io/badge/Focus-AI%20Tools-00E5FF?style=for-the-badge&labelColor=020617" />
@@ -11,66 +18,61 @@
   <img src="https://img.shields.io/badge/Status-Building%20Real%20Projects-00E5FF?style=for-the-badge&labelColor=020617" />
 </p>
 
-<p align="center">
-  <a href="https://SercanOzkan55.github.io/SercanOzkan55/">
-    <img src="https://img.shields.io/badge/🌐%20View%20My%20Interactive%20Neon%20Portfolio-00E5FF?style=for-the-badge&logo=google-chrome&logoColor=020617&labelColor=020617" />
-  </a>
-</p>
-
 ---
 
-<table>
+<table border="0" width="100%">
 <tr>
-<td width="58%">
+<td width="55%" valign="top">
 
 ## 🧠 About Me
 
-I'm **Sercan Özkan**, a Computer Engineering student who enjoys building practical, clean and visually strong software projects.
+I'm **Sercan Özkan**, a Computer Engineering student specializing in creating useful, clean, and visually premium software systems. 
 
-I focus on projects that combine **real-world usefulness**, **clean backend logic**, **AI-powered ideas** and **modern presentation**.
+I focus on bridging **practical automation**, **clean backend architecture**, and **AI-powered intelligence** with cutting-edge user interfaces.
 
+### ⚡ Operational Status
 <pre>
 sercan@github:~$ ./profile --status
 
-[ AI Tools        ] ███████████░ 90%
+[ AI Integrations ] ███████████░ 90%
 [ Backend Logic   ] ██████████░░ 85%
-[ Desktop Apps    ] ████████░░░░ 70%
-[ Databases       ] █████████░░░ 78%
-[ Systems Mindset ] ████████░░░░ 72%
 [ UI Presentation ] ██████████░░ 82%
+[ Databases (SQL) ] █████████░░░ 78%
+[ Systems Mindset ] ████████░░░░ 72%
+[ Desktop Tools   ] ████████░░░░ 70%
 </pre>
 
-- 🚀 Building portfolio-ready software projects  
-- 🧠 Interested in **AI tools, backend systems, desktop apps and performance**
-- 📊 I like projects with useful data processing and clear output
-- 🎯 Goal: Build a strong GitHub profile with unique and impressive projects
+- 🚀 **Mission:** Build high-utility, portfolio-ready products.
+- 🧠 **Interests:** Machine learning integrations, desktop efficiency tools, API development, and graphics programming.
+- 📊 **Approach:** Clean modular code paired with readable, interactive dashboards.
 
 </td>
-<td width="42%">
+<td width="45%" valign="top">
 
 ## ⚡ Developer Snapshot
 
-<pre>
-name: Sercan Özkan
-role: Computer Engineering Student
+```yaml
+developer:
+  name: Sercan Özkan
+  role: Computer Engineering Student
+  location: Turkey 🇹🇷
+  
+  focus_areas:
+    - AI-Powered Applications
+    - Core Backend & REST APIs
+    - Resume / ATS Keyword Analyzers
+    - System & Desktop Utilities
 
-main_focus:
-  - AI-powered applications
-  - Backend development
-  - CV / Resume analysis
-  - Desktop and system tools
+  current_projects:
+    - CV Analyzer
+    - Neon Space Duel
+    - FoodApp
 
-current_projects:
-  - CV Analyzer
-  - Neon Space Duel
-  - FoodApp
-
-style:
-  - clean code
-  - neon design
-  - useful features
-  - strong presentation
-</pre>
+  coding_style:
+    - Clean & Modular Logic
+    - User-First Interfaces
+    - Performance Tuning
+```
 
 </td>
 </tr>
@@ -78,135 +80,67 @@ style:
 
 ---
 
-## 🚀 Featured Project: CV Analyzer
+## 🛠️ Tech Stack & Capabilities
 
 <p align="center">
+  <!-- Languages -->
+  <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/c++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" />
+  <img src="https://img.shields.io/badge/java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" />
+  <br>
+  <!-- Frameworks & Backends -->
+  <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img src="https://img.shields.io/badge/fastapi-009688?style=for-the-badge&logo=fastapi&logoColor=white" />
+  <img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white" />
+  <br>
+  <!-- Tools & Databases -->
+  <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />
+  <img src="https://img.shields.io/badge/sqlite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" />
+  <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white" />
+  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white" />
+</p>
+
+---
+
+## 🛰️ Featured Projects
+
+<table width="100%">
+<tr>
+<td width="33%" valign="top">
+<h3>📄 CV Analyzer</h3>
+<p>An AI-powered resume parsing and ATS evaluation toolkit. Analyzes keyword density, score profiles, and guides optimization.</p>
+<p align="left">
   <a href="https://github.com/SercanOzkan55/CV-Analyzer">
-    <img src="https://img.shields.io/badge/View%20CV%20Analyzer-00E5FF?style=for-the-badge&logo=github&logoColor=020617&labelColor=020617" />
+    <img src="https://img.shields.io/badge/Repository-00E5FF?style=flat-square&logo=github&logoColor=020617&labelColor=020617" />
   </a>
 </p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/AI%20Resume%20Analysis-00E5FF?style=for-the-badge&labelColor=020617" />
-  <img src="https://img.shields.io/badge/ATS%20Scoring-7C3AED?style=for-the-badge&labelColor=020617" />
-  <img src="https://img.shields.io/badge/PDF%20Parsing-00E5FF?style=for-the-badge&labelColor=020617" />
-  <img src="https://img.shields.io/badge/Keyword%20Extraction-7C3AED?style=for-the-badge&labelColor=020617" />
+</td>
+<td width="33%" valign="top">
+<h3>🚀 Neon Space Duel</h3>
+<p>A retro neon-themed space arcade shooter built directly in the browser using HTML5 Canvas physics and custom enemy flight AI patterns.</p>
+<p align="left">
+  <a href="https://SercanOzkan55.github.io/SercanOzkan55/">
+    <img src="https://img.shields.io/badge/Play%20Game-7C3AED?style=flat-square&logo=github&logoColor=ffffff&labelColor=020617" />
+  </a>
 </p>
-
-> **CV Analyzer** is an AI-oriented resume analysis project focused on extracting useful information from CVs, evaluating content quality and helping users improve their resumes.
-
-<table>
-<tr>
-<td width="25%">
-
-### 📄 CV Parsing
-
-Reads and processes resume content.
-
 </td>
-<td width="25%">
-
-### 🧠 Smart Analysis
-
-Detects skills, keywords and important sections.
-
-</td>
-<td width="25%">
-
-### 📊 ATS Mindset
-
-Evaluates CV strength for job applications.
-
-</td>
-<td width="25%">
-
-### 💡 Feedback
-
-Generates improvement-focused suggestions.
-
-</td>
-</tr>
-</table>
-
-<pre>
-CV Analyzer Flow
-
-Upload CV
-   │
-   ▼
-Extract Text
-   │
-   ▼
-Analyze Skills / Keywords / Experience
-   │
-   ▼
-Calculate Score
-   │
-   ▼
-Generate Feedback
-</pre>
-
----
-
-## 🛠️ Tech Stack
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=python,js,ts,java,c,cpp,php,html,css,react,nodejs,flask,fastapi,mysql,sqlite,git,github,vscode&perline=9" />
+<td width="33%" valign="top">
+<h3>🍔 FoodApp</h3>
+<p>A responsive food discovery and ordering database platform focusing on backend structure, REST endpoints, and custom state controllers.</p>
+<p align="left">
+  <a href="https://github.com/SercanOzkan55/FoodApp">
+    <img src="https://img.shields.io/badge/Repository-00E5FF?style=flat-square&logo=github&logoColor=020617&labelColor=020617" />
+  </a>
 </p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-020617?style=for-the-badge&logo=python&logoColor=00E5FF" />
-  <img src="https://img.shields.io/badge/Backend-020617?style=for-the-badge&logo=serverless&logoColor=7C3AED" />
-  <img src="https://img.shields.io/badge/Database-020617?style=for-the-badge&logo=mysql&logoColor=00E5FF" />
-  <img src="https://img.shields.io/badge/AI%20Logic-020617?style=for-the-badge&logo=openai&logoColor=7C3AED" />
-  <img src="https://img.shields.io/badge/Clean%20Code-020617?style=for-the-badge&logo=codeforces&logoColor=00E5FF" />
-</p>
-
----
-
-## 🛰️ Project Universe
-
-<table>
-<tr>
-<td width="33%">
-
-### 🧠 CV Analyzer
-
-AI-oriented resume analysis tool.
-
-<a href="https://github.com/SercanOzkan55/CV-Analyzer">
-  <img src="https://img.shields.io/badge/Repository-00E5FF?style=for-the-badge&logo=github&logoColor=020617&labelColor=020617" />
-</a>
-
-</td>
-<td width="33%">
-
-### 🚀 Neon Space Duel
-
-Neon-themed browser mini game.
-
-<a href="https://SercanOzkan55.github.io/space-duel/">
-  <img src="https://img.shields.io/badge/Play%20Game-7C3AED?style=for-the-badge&logo=github&logoColor=ffffff&labelColor=020617" />
-</a>
-
-</td>
-<td width="33%">
-
-### 🍔 FoodApp
-
-Food ordering / restaurant-style web app.
-
-<a href="https://github.com/SercanOzkan55/FoodApp">
-  <img src="https://img.shields.io/badge/Repository-00E5FF?style=for-the-badge&logo=github&logoColor=020617&labelColor=020617" />
-</a>
-
 </td>
 </tr>
 </table>
 
 ---
 
-## 📊 GitHub Analytics
+## 📊 GitHub Performance Metrics
 
 <p align="center">
   <img width="49%" src="https://github-readme-stats.vercel.app/api?username=SercanOzkan55&show_icons=true&theme=tokyonight&hide_border=true&bg_color=020617&title_color=00E5FF&icon_color=7C3AED&text_color=ffffff" />
@@ -214,42 +148,24 @@ Food ordering / restaurant-style web app.
 </p>
 
 <p align="center">
-  <img width="60%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&theme=tokyonight&hide_border=true&bg_color=020617&title_color=00E5FF&text_color=ffffff" />
+  <img width="70%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&theme=tokyonight&hide_border=true&bg_color=020617&title_color=00E5FF&text_color=ffffff" />
 </p>
 
 <p align="center">
-  <img width="95%" src="https://github-readme-activity-graph.vercel.app/graph?username=SercanOzkan55&bg_color=020617&color=00E5FF&line=7C3AED&point=ffffff&area=true&hide_border=true" />
+  <img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=SercanOzkan55&bg_color=020617&color=00E5FF&line=7C3AED&point=ffffff&area=true&hide_border=true" />
 </p>
 
 ---
 
-## 🧬 Build Philosophy
-
-<pre>
-Idea
-  └──> Prototype
-          └──> Clean Logic
-                  └──> Better UI
-                          └──> Useful Project
-                                  └──> Portfolio Ready
-</pre>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Clean%20Code-020617?style=for-the-badge&logo=codeforces&logoColor=00E5FF" />
-  <img src="https://img.shields.io/badge/Real%20Projects-020617?style=for-the-badge&logo=rocket&logoColor=7C3AED" />
-  <img src="https://img.shields.io/badge/Always%20Improving-020617?style=for-the-badge&logo=githubactions&logoColor=00E5FF" />
-</p>
-
----
-
-## 🌐 Connect With Me
+## 🤝 Let's Connect
 
 <p align="center">
   <a href="https://www.linkedin.com/in/sercan-özkan-a205852a7/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-00E5FF?style=for-the-badge&logo=linkedin&logoColor=020617&labelColor=020617" />
+    <img src="https://img.shields.io/badge/LinkedIn-00E5FF?style=for-the-badge&logo=linkedin&logoColor=020617&labelColor=020617" height="35" />
   </a>
+  &nbsp;&nbsp;
   <a href="https://www.instagram.com/sercan.ozkn55/" target="_blank">
-    <img src="https://img.shields.io/badge/Instagram-7C3AED?style=for-the-badge&logo=instagram&logoColor=ffffff&labelColor=020617" />
+    <img src="https://img.shields.io/badge/Instagram-7C3AED?style=for-the-badge&logo=instagram&logoColor=ffffff&labelColor=020617" height="35" />
   </a>
 </p>
 
