@@ -1,178 +1,127 @@
-<img width="100%" src="https://capsule-render.vercel.app/api?type=venom&height=280&color=0:020617,35:0B1220,70:00E5FF,100:7C3AED&text=Sercan%20Özkan&fontColor=ffffff&fontSize=58&animation=twinkling&desc=Computer%20Engineering%20Student%20%7C%20AI%20Tools%20%7C%20Backend%20%7C%20Systems&descSize=18&descAlignY=68" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=venom&height=250&color=0:020801,40:071503,70:39ff14,100:ffb000&text=Sercan%20Özkan&fontColor=ffffff&fontSize=52&animation=twinkling&desc=Computer%20Engineering%20Student%20%7C%20AI%20Tools%20%7C%20Systems&descSize=16&descAlignY=66" />
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=24&duration=2300&pause=700&color=00E5FF&center=true&vCenter=true&width=900&lines=Building+AI-powered+software+projects;CV+Analyzer+%7C+ATS+Scoring+%7C+Resume+Insights;Backend+%2B+Desktop+%2B+Systems+Mindset;Clean+Code.+Smart+Projects.+Modern+Portfolio." />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Press+Start+2P&size=16&duration=2500&pause=1000&color=39FF14&center=true&vCenter=true&width=900&lines=LOADING+SERCAN_OS+MAIN_MODULE...;RUNNING+2D_PORTFOLIO_GAME.EXE;CV_ANALYZER_SCANNER+ONLINE;BACKEND+%2B+DATABASES+ACTIVE" />
 </p>
 
-<!-- Live Portfolio CTA Button -->
+---
+
+## 💾 SYSTEM BOOT DISK LAUNCHER
+
 <p align="center">
   <a href="https://SercanOzkan55.github.io/SercanOzkan55/" target="_blank">
-    <img src="https://img.shields.io/badge/%F0%9F%8C%90%20ENTER%20INTERACTIVE%20PORTFOLIO-020617?style=for-the-badge&logo=googlechrome&logoColor=00E5FF&labelColor=020617" height="42" />
+    <img src="https://img.shields.io/badge/%F0%9F%92%BE%20INSERT%20DISK%20%26%20PLAY%20PORTFOLIO%20GAME-071503?style=for-the-badge&logo=dosbox&logoColor=39ff14&labelColor=020801" height="42" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=SercanOzkan55&label=Profile%20Views&color=00E5FF&style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Focus-AI%20Tools-00E5FF?style=for-the-badge&labelColor=020617" />
-  <img src="https://img.shields.io/badge/Backend-Mindset-7C3AED?style=for-the-badge&labelColor=020617" />
-  <img src="https://img.shields.io/badge/Status-Building%20Real%20Projects-00E5FF?style=for-the-badge&labelColor=020617" />
+  <sub>Click the cartridge above to boot Sercan's interactive 8-Bit Pixel Office Game directly in your browser.</sub>
 </p>
 
 ---
 
-<table border="0" width="100%">
-<tr>
-<td width="55%" valign="top">
+## 🔴 🟡 🟢 sercan@mainframe: ~ (active_session)
 
-## 🧠 About Me
+| Variable | System State Value |
+| :--- | :--- |
+| **USER_NAME** | Sercan Özkan |
+| **SYSTEM_ROLE** | Computer Engineering Student |
+| **CURRENT_FOCUS** | AI Tools Integrator & Backend Engineer |
+| **STATUS** | Building High-Utility Software Projects |
 
-I'm **Sercan Özkan**, a Computer Engineering student specializing in creating useful, clean, and visually premium software systems. 
-
-I focus on bridging **practical automation**, **clean backend architecture**, and **AI-powered intelligence** with cutting-edge user interfaces.
-
-### ⚡ Operational Status
-<pre>
-sercan@github:~$ ./profile --status
-
-[ AI Integrations ] ███████████░ 90%
-[ Backend Logic   ] ██████████░░ 85%
-[ UI Presentation ] ██████████░░ 82%
-[ Databases (SQL) ] █████████░░░ 78%
-[ Systems Mindset ] ████████░░░░ 72%
-[ Desktop Tools   ] ████████░░░░ 70%
-</pre>
-
-- 🚀 **Mission:** Build high-utility, portfolio-ready products.
-- 🧠 **Interests:** Machine learning integrations, desktop efficiency tools, API development, and graphics programming.
-- 📊 **Approach:** Clean modular code paired with readable, interactive dashboards.
-
-</td>
-<td width="45%" valign="top">
-
-## ⚡ Developer Snapshot
-
-```yaml
-developer:
-  name: Sercan Özkan
-  role: Computer Engineering Student
-  location: Turkey 🇹🇷
-  
-  focus_areas:
-    - AI-Powered Applications
-    - Core Backend & REST APIs
-    - Resume / ATS Keyword Analyzers
-    - System & Desktop Utilities
-
-  current_projects:
-    - CV Analyzer
-    - Neon Space Duel
-    - FoodApp
-
-  coding_style:
-    - Clean & Modular Logic
-    - User-First Interfaces
-    - Performance Tuning
+```ascii
+      ____________________________________________________
+     | [X] sercan_bio.log                                 |
+     |                                                    |
+     |  I am a developer focused on constructing clean    |
+     |  logic terminals, database queries, and custom     |
+     |  AI prompts. I love visual feedback, modular code  |
+     |  compilation, and building retro emulators.        |
+     |                                                    |
+     |  sercan@github:~$ ./profile --status               |
+     |                                                    |
+     |  AI Prompts  [███████████░] 90%                    |
+     |  Backend     [██████████░░] 85%                    |
+     |  UI/Design   [██████████░░] 82%                    |
+     |  Databases   [█████████░░░] 78%                    |
+     |  Systems     [████████░░░░] 72%                    |
+     |____________________________________________________|
 ```
 
-</td>
-</tr>
-</table>
-
 ---
 
-## 🛠️ Tech Stack & Capabilities
+## 🛰️ SYSTEMS ARCHITECTURE & STACK DIRECTORY
 
-<p align="center">
-  <!-- Languages -->
-  <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-  <img src="https://img.shields.io/badge/c++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" />
-  <img src="https://img.shields.io/badge/java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" />
+```ascii
+C:\WORKSPACE\SERCAN_ÖZKAN\
+ ├── 📄 index.html (Interactive Game Engine)
+ ├── 🧠 AI_INTEGRATIONS_MODULE/
+ │    ├── 📄 cv_analyzer.py ── [NLP Keyword Evaluation / ATS Matcher]
+ │    └── 🛠️ Tech: Python, FastAPI, SentenceTransformers
+ ├── ⚙️ BACKEND_DATABASES_MODULE/
+ │    ├── 📄 foodapp_server.js ── [REST APIs & State Queries]
+ │    └── 🛠️ Tech: NodeJS, ExpressJS, MongoDB, SQLite, MySQL
+ └── 🕹️ GRAPHICS_ENGINE_MODULE/
+      ├── 📄 space_duel.js ── [Canvas Retro Arcade Shooter Engine]
+      └── 🛠️ Tech: HTML5 Canvas, JS Physics, Keyframe Renderers
+```
+
+### 🛠️ Active Compilers & Frameworks
+<p align="left">
+  <!-- Langs -->
+  <img src="https://img.shields.io/badge/Python-071503?style=for-the-badge&logo=python&logoColor=39ff14" />
+  <img src="https://img.shields.io/badge/JavaScript-071503?style=for-the-badge&logo=javascript&logoColor=39ff14" />
+  <img src="https://img.shields.io/badge/C++-071503?style=for-the-badge&logo=c%2B%2B&logoColor=39ff14" />
+  <img src="https://img.shields.io/badge/Java-071503?style=for-the-badge&logo=openjdk&logoColor=39ff14" />
   <br>
-  <!-- Frameworks & Backends -->
-  <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
-  <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white" />
-  <img src="https://img.shields.io/badge/fastapi-009688?style=for-the-badge&logo=fastapi&logoColor=white" />
-  <img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white" />
+  <!-- Frameworks -->
+  <img src="https://img.shields.io/badge/Node.js-071503?style=for-the-badge&logo=nodedotjs&logoColor=ffb000" />
+  <img src="https://img.shields.io/badge/Express-071503?style=for-the-badge&logo=express&logoColor=ffb000" />
+  <img src="https://img.shields.io/badge/FastAPI-071503?style=for-the-badge&logo=fastapi&logoColor=ffb000" />
+  <img src="https://img.shields.io/badge/Flask-071503?style=for-the-badge&logo=flask&logoColor=ffb000" />
   <br>
-  <!-- Tools & Databases -->
-  <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />
-  <img src="https://img.shields.io/badge/sqlite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" />
-  <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white" />
-  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white" />
+  <!-- DBs & Git -->
+  <img src="https://img.shields.io/badge/MySQL-020801?style=for-the-badge&logo=mysql&logoColor=39ff14" />
+  <img src="https://img.shields.io/badge/SQLite-020801?style=for-the-badge&logo=sqlite&logoColor=39ff14" />
+  <img src="https://img.shields.io/badge/Git-020801?style=for-the-badge&logo=git&logoColor=ffb000" />
+  <img src="https://img.shields.io/badge/GitHub-020801?style=for-the-badge&logo=github&logoColor=ffb000" />
 </p>
 
 ---
 
-## 🛰️ Featured Projects
-
-<table width="100%">
-<tr>
-<td width="33%" valign="top">
-<h3>📄 CV Analyzer</h3>
-<p>An AI-powered resume parsing and ATS evaluation toolkit. Analyzes keyword density, score profiles, and guides optimization.</p>
-<p align="left">
-  <a href="https://github.com/SercanOzkan55/CV-Analyzer">
-    <img src="https://img.shields.io/badge/Repository-00E5FF?style=flat-square&logo=github&logoColor=020617&labelColor=020617" />
-  </a>
-</p>
-</td>
-<td width="33%" valign="top">
-<h3>🚀 Neon Space Duel</h3>
-<p>A retro neon-themed space arcade shooter built directly in the browser using HTML5 Canvas physics and custom enemy flight AI patterns.</p>
-<p align="left">
-  <a href="https://SercanOzkan55.github.io/SercanOzkan55/">
-    <img src="https://img.shields.io/badge/Play%20Game-7C3AED?style=flat-square&logo=github&logoColor=ffffff&labelColor=020617" />
-  </a>
-</p>
-</td>
-<td width="33%" valign="top">
-<h3>🍔 FoodApp</h3>
-<p>A responsive food discovery and ordering database platform focusing on backend structure, REST endpoints, and custom state controllers.</p>
-<p align="left">
-  <a href="https://github.com/SercanOzkan55/FoodApp">
-    <img src="https://img.shields.io/badge/Repository-00E5FF?style=flat-square&logo=github&logoColor=020617&labelColor=020617" />
-  </a>
-</p>
-</td>
-</tr>
-</table>
-
----
-
-## 📊 GitHub Performance Metrics
+## 📟 HARDWARE DIAGNOSTICS & SYSTEM LOGS
 
 <p align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=SercanOzkan55&show_icons=true&theme=tokyonight&hide_border=true&bg_color=020617&title_color=00E5FF&icon_color=7C3AED&text_color=ffffff" />
-  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=SercanOzkan55&theme=tokyonight&hide_border=true&background=020617&ring=00E5FF&fire=7C3AED&currStreakLabel=00E5FF" />
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=SercanOzkan55&show_icons=true&theme=gotham&hide_border=true&bg_color=020801&title_color=39ff14&icon_color=ffb000&text_color=ffffff" />
+  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=SercanOzkan55&theme=gotham&hide_border=true&background=020801&ring=39ff14&fire=ffb000&currStreakLabel=39ff14" />
 </p>
 
 <p align="center">
-  <img width="70%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&theme=tokyonight&hide_border=true&bg_color=020617&title_color=00E5FF&text_color=ffffff" />
+  <img width="70%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&theme=gotham&hide_border=true&bg_color=020801&title_color=39ff14&text_color=ffffff" />
 </p>
 
 <p align="center">
-  <img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=SercanOzkan55&bg_color=020617&color=00E5FF&line=7C3AED&point=ffffff&area=true&hide_border=true" />
+  <img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=SercanOzkan55&bg_color=020801&color=39ff14&line=ffb000&point=ffffff&area=true&hide_border=true" />
 </p>
 
 ---
 
-## 🤝 Let's Connect
+## 📳 ENCRYPTED COM_PORTS
 
 <p align="center">
   <a href="https://www.linkedin.com/in/sercan-özkan-a205852a7/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-00E5FF?style=for-the-badge&logo=linkedin&logoColor=020617&labelColor=020617" height="35" />
+    <img src="https://img.shields.io/badge/LINK_PORT__LINKEDIN-39ff14?style=for-the-badge&logo=linkedin&logoColor=020801&labelColor=39ff14" height="35" />
   </a>
   &nbsp;&nbsp;
   <a href="https://www.instagram.com/sercan.ozkn55/" target="_blank">
-    <img src="https://img.shields.io/badge/Instagram-7C3AED?style=for-the-badge&logo=instagram&logoColor=ffffff&labelColor=020617" height="35" />
+    <img src="https://img.shields.io/badge/LINK_PORT__INSTAGRAM-ffb000?style=for-the-badge&logo=instagram&logoColor=020801&labelColor=ffb000" height="35" />
   </a>
 </p>
 
 ---
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=18&duration=2500&pause=1000&color=00E5FF&center=true&vCenter=true&width=700&lines=Thanks+for+visiting+my+GitHub+profile.;Building+better+projects%2C+one+commit+at+a+time." />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Press+Start+2P&size=14&duration=2500&pause=1000&color=39FF14&center=true&vCenter=true&width=700&lines=SYSTEM_SHUTDOWN_LOGGED.;GOODBYE_OPERATIVE." />
 </p>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=130&section=footer&color=0:7C3AED,50:00E5FF,100:020617" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=0:020801,40:071503,70:39ff14,100:ffb000" />
