@@ -78,6 +78,8 @@ function bringToFront(winEl) {
   activeWinId = winEl.id;
 }
 
+let aboutTyped = false;
+
 function openWindow(id) {
   const win = document.getElementById(id);
   if (!win) return;
@@ -91,7 +93,45 @@ function openWindow(id) {
   if (id === 'win-matrix') startMatrixRain();
   if (id === 'win-arcade') startArcadeGame();
   if (id === 'win-diagnostics') startDiagnostics();
+
+  // Trigger typing effect for About window
+  if (id === 'win-about' && !aboutTyped) {
+    aboutTyped = true;
+    const aboutBody = document.querySelector('#win-about .window-body');
+    if (aboutBody) {
+      const originalHTML = aboutBody.innerHTML;
+      const textContent = aboutBody.innerText;
+      aboutBody.innerHTML = '';
+
+      // Create a typing container
+      const typingEl = document.createElement('div');
+      typingEl.style.whiteSpace = 'pre-wrap';
+      typingEl.style.fontFamily = 'var(--font-mono)';
+      typingEl.style.fontSize = '0.75rem';
+      typingEl.style.lineHeight = '1.5';
+      typingEl.style.color = 'var(--text-main)';
+      aboutBody.appendChild(typingEl);
+
+      let charIndex = 0;
+      const typeSpeed = 12;
+
+      function typeChar() {
+        if (charIndex < textContent.length) {
+          typingEl.textContent += textContent[charIndex];
+          charIndex++;
+          aboutBody.scrollTop = aboutBody.scrollHeight;
+          setTimeout(typeChar, typeSpeed);
+        } else {
+          setTimeout(() => {
+            aboutBody.innerHTML = originalHTML;
+          }, 300);
+        }
+      }
+      setTimeout(typeChar, 200);
+    }
+  }
 }
+
 
 function closeWindow(id) {
   const win = document.getElementById(id);
@@ -111,6 +151,10 @@ function minimizeWindow(id) {
   const win = document.getElementById(id);
   if (!win) return;
   win.style.display = 'none';
+  if (activeWinId === id) {
+    activeWinId = null;
+  }
+  refreshTaskbar();
 }
 
 function refreshTaskbar() {
@@ -126,8 +170,14 @@ function refreshTaskbar() {
       const w = document.getElementById(id);
       if (w.style.display === 'none') {
         w.style.display = 'flex';
+        bringToFront(w);
+      } else {
+        if (activeWinId === id) {
+          minimizeWindow(id);
+        } else {
+          bringToFront(w);
+        }
       }
-      bringToFront(w);
       refreshTaskbar();
     });
     taskbarTabs.appendChild(tab);
@@ -1226,51 +1276,4 @@ function showScanHud() {
 })();
 
 
-// ────────────────────────────────────────────────
-// 13. TYPING EFFECT — ABOUT WINDOW CONTENT
-// ────────────────────────────────────────────────
-let aboutTyped = false;
-const originalOpenWindow = openWindow;
 
-// Override openWindow to add typing effect for About
-function openWindow(id) {
-  originalOpenWindow(id);
-
-  if (id === 'win-about' && !aboutTyped) {
-    aboutTyped = true;
-    const aboutBody = document.querySelector('#win-about .window-body');
-    if (!aboutBody) return;
-
-    const originalHTML = aboutBody.innerHTML;
-    const textContent = aboutBody.innerText;
-    aboutBody.innerHTML = '';
-
-    // Create a typing container
-    const typingEl = document.createElement('div');
-    typingEl.style.whiteSpace = 'pre-wrap';
-    typingEl.style.fontFamily = 'var(--font-mono)';
-    typingEl.style.fontSize = '0.75rem';
-    typingEl.style.lineHeight = '1.5';
-    typingEl.style.color = 'var(--text-main)';
-    aboutBody.appendChild(typingEl);
-
-    let charIndex = 0;
-    const typeSpeed = 12;
-
-    function typeChar() {
-      if (charIndex < textContent.length) {
-        typingEl.textContent += textContent[charIndex];
-        charIndex++;
-        // Scroll to bottom
-        aboutBody.scrollTop = aboutBody.scrollHeight;
-        setTimeout(typeChar, typeSpeed);
-      } else {
-        // Typing done, restore full HTML for proper formatting
-        setTimeout(() => {
-          aboutBody.innerHTML = originalHTML;
-        }, 300);
-      }
-    }
-    setTimeout(typeChar, 200);
-  }
-}
