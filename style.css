@@ -344,6 +344,7 @@ body {
   align-items: center;
   cursor: move;
   transition: filter 0.2s ease, letter-spacing 0.2s ease;
+  touch-action: none;
 }
 
 .window-titlebar:hover {
@@ -633,6 +634,7 @@ body {
   font-size: 0.5rem;
   padding: 8px 16px;
   cursor: pointer;
+  touch-action: none;
 }
 
 /* Forms styling */
