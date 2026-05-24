@@ -121,6 +121,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  animation: neonPulse 4s ease-in-out infinite;
 }
 
 .crt-glass {
@@ -220,7 +221,19 @@ body {
   padding: 4px;
   border-radius: 4px;
   transition: all 0.2s ease;
+  animation: floatIcon 3s ease-in-out infinite;
 }
+
+.desktop-icon:nth-child(1) { animation-delay: 0s; }
+.desktop-icon:nth-child(2) { animation-delay: 0.3s; }
+.desktop-icon:nth-child(3) { animation-delay: 0.6s; }
+.desktop-icon:nth-child(4) { animation-delay: 0.9s; }
+.desktop-icon:nth-child(5) { animation-delay: 1.2s; }
+.desktop-icon:nth-child(6) { animation-delay: 1.5s; }
+.desktop-icon:nth-child(7) { animation-delay: 1.8s; }
+.desktop-icon:nth-child(8) { animation-delay: 2.1s; }
+.desktop-icon:nth-child(9) { animation-delay: 2.4s; }
+.desktop-icon:nth-child(10) { animation-delay: 2.7s; }
 
 .desktop-icon:hover {
   background: rgba(252, 238, 10, 0.1);
@@ -244,7 +257,7 @@ body {
 /* Bottom OS Taskbar */
 .taskbar {
   height: 40px;
-  background: rgba(12, 13, 20, 0.95);
+  background: linear-gradient(180deg, rgba(20, 22, 30, 0.98) 0%, rgba(8, 9, 14, 0.99) 50%, rgba(20, 22, 30, 0.98) 100%);
   border-top: 3px double var(--primary);
   display: flex;
   align-items: center;
@@ -252,6 +265,7 @@ body {
   padding: 0 1rem;
   z-index: 1000;
   color: var(--primary);
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .taskbar-start {
@@ -329,6 +343,12 @@ body {
   justify-content: space-between;
   align-items: center;
   cursor: move;
+  transition: filter 0.2s ease, letter-spacing 0.2s ease;
+}
+
+.window-titlebar:hover {
+  filter: brightness(1.2);
+  letter-spacing: 1px;
 }
 
 .window-controls {
@@ -515,6 +535,11 @@ body {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   width: 70%;
+  caret-color: var(--primary);
+}
+
+.term-input-field::placeholder {
+  animation: typewriterBlink 1s step-end infinite;
 }
 
 /* CV Scanner */
@@ -635,4 +660,240 @@ body {
   padding: 8px 16px;
   cursor: pointer;
   align-self: flex-end;
+}
+
+/* ═══════════════════════════════════════
+   NEW KEYFRAME ANIMATIONS
+   ═══════════════════════════════════════ */
+
+@keyframes glitchTitle {
+  0%, 100% {
+    text-shadow: none;
+  }
+  20% {
+    text-shadow: -2px 0 #00f0ff, 2px 0 #ff007f;
+  }
+  40% {
+    text-shadow: 2px 0 #00f0ff, -2px 0 #ff007f;
+  }
+  60% {
+    text-shadow: -1px 1px #00f0ff, 1px -1px #ff007f;
+  }
+  80% {
+    text-shadow: 1px -1px #00f0ff, -1px 1px #ff007f;
+  }
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8), inset 0 2px 5px rgba(255,255,255,0.1), 0 0 15px var(--border-glow);
+  }
+  50% {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8), inset 0 2px 5px rgba(255,255,255,0.1), 0 0 35px var(--primary-glow), 0 0 60px var(--border-glow);
+  }
+}
+
+@keyframes typewriterBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes bootSequence {
+  0% {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floatIcon {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes shootFlash {
+  0% { border-color: #fff; }
+  100% { border-color: var(--primary); }
+}
+
+/* Glitch text effect class */
+.glitch-text {
+  animation: glitchTitle 2.5s infinite;
+  position: relative;
+}
+
+/* Boot Overlay */
+.boot-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-mono);
+  color: #00f0ff;
+  font-size: 0.85rem;
+  line-height: 2;
+  transition: opacity 0.8s ease;
+  animation: bootSequence 0.5s ease-out;
+}
+
+.boot-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.boot-line {
+  opacity: 0;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+
+.boot-line.visible {
+  opacity: 1;
+}
+
+.boot-line .ok {
+  color: #39ff14;
+  font-weight: bold;
+}
+
+.boot-line .loading {
+  color: #ffb000;
+}
+
+.boot-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: #00f0ff;
+  animation: typewriterBlink 0.6s step-end infinite;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+/* Arcade shoot flash */
+.arcade-shoot-flash {
+  animation: shootFlash 0.1s ease-out;
+}
+
+/* Multiplier HUD */
+.arc-multiplier {
+  color: #ff007f;
+  font-weight: bold;
+  text-shadow: 0 0 6px rgba(255, 0, 127, 0.5);
+}
+
+/* ═══════════════════════════════════════
+   MOBILE RESPONSIVE OVERRIDES
+   ═══════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+
+  .monitor-bezel {
+    border-width: 4px;
+    border-radius: 10px;
+    padding: 4px;
+    max-height: 100vh;
+    max-width: 100vw;
+  }
+
+  .desktop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+    gap: 0.8rem;
+    max-width: 100%;
+  }
+
+  .desktop-icon i {
+    font-size: 1.2rem;
+  }
+
+  .desktop-icon span {
+    font-size: 0.35rem;
+  }
+
+  .desktop-space {
+    padding: 0.6rem;
+  }
+
+  .window {
+    min-width: 200px;
+    max-width: 95vw;
+    width: 90vw !important;
+    left: 5px !important;
+  }
+
+  .window-body {
+    max-height: 300px;
+    font-size: 0.65rem;
+  }
+
+  .taskbar {
+    height: 34px;
+    padding: 0 0.5rem;
+  }
+
+  .taskbar-start {
+    font-size: 0.45rem;
+    padding: 4px 8px;
+  }
+
+  .taskbar-clock {
+    font-size: 0.6rem;
+  }
+
+  .bezel-control-bar {
+    font-size: 0.4rem;
+    padding: 0.2rem 0.5rem 0;
+  }
+
+  .boot-overlay {
+    font-size: 0.65rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .desktop-grid {
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .desktop-icon i {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .desktop-icon span {
+    font-size: 0.3rem;
+  }
+
+  .window-titlebar {
+    font-size: 0.45rem;
+    padding: 4px 6px;
+  }
+
+  .active-window-tabs {
+    margin: 0 0.5rem;
+  }
+
+  .window-tab {
+    font-size: 0.35rem;
+    padding: 3px 6px;
+  }
 }

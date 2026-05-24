@@ -255,12 +255,15 @@ document.getElementById('btn-start-os').addEventListener('click', () => {
 
 
 // ────────────────────────────────────────────────
-// 4. STARFIELD PARTICLE BACKGROUND CANVAS
+// 4. STARFIELD PARTICLE BACKGROUND CANVAS (MOUSE-INTERACTIVE)
 // ────────────────────────────────────────────────
 const bgCanvas = document.getElementById('bg-canvas');
 const bgCtx = bgCanvas.getContext('2d');
 let bgParticles = [];
 const BG_COUNT = 60;
+let mouseX = -9999, mouseY = -9999;
+const MOUSE_PUSH_RADIUS = 120;
+const MOUSE_PUSH_FORCE = 1.5;
 
 function resizeBg() {
   bgCanvas.width = window.innerWidth;
@@ -268,6 +271,16 @@ function resizeBg() {
 }
 window.addEventListener('resize', resizeBg);
 resizeBg();
+
+// Track mouse for particle push effect
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+document.addEventListener('mouseleave', () => {
+  mouseX = -9999;
+  mouseY = -9999;
+});
 
 class StarNode {
   constructor() { this.reset(); }
@@ -279,6 +292,22 @@ class StarNode {
     this.vy = (Math.random() - 0.5) * 0.35;
   }
   update() {
+    // Mouse push interaction
+    const dx = this.x - mouseX;
+    const dy = this.y - mouseY;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist < MOUSE_PUSH_RADIUS && dist > 0) {
+      const force = (1 - dist / MOUSE_PUSH_RADIUS) * MOUSE_PUSH_FORCE;
+      this.vx += (dx / dist) * force * 0.15;
+      this.vy += (dy / dist) * force * 0.15;
+    }
+    // Dampen velocity
+    this.vx *= 0.98;
+    this.vy *= 0.98;
+    // Base drift
+    this.vx += (Math.random() - 0.5) * 0.02;
+    this.vy += (Math.random() - 0.5) * 0.02;
+
     this.x += this.vx;
     this.y += this.vy;
     if (this.x < 0 || this.x > bgCanvas.width || this.y < 0 || this.y > bgCanvas.height) this.reset();
@@ -405,6 +434,8 @@ const shellCommands = {
   <span style="color:var(--primary)">fortune</span>       Random developer wisdom quote
   <span style="color:var(--primary)">matrix</span>        Open matrix rain visualizer
   <span style="color:var(--primary)">arcade</span>        Launch Space Duel executable
+  <span style="color:var(--primary)">date</span>          Display current date and time
+  <span style="color:var(--primary)">whoami</span>        Print current user identity
   <span style="color:var(--primary)">clear</span>         Flush terminal buffer`,
 
   about: `┌─────────────────────────────────────────────────┐
@@ -453,6 +484,14 @@ const shellCommands = {
 
   fortune: 'LOADING_FORTUNE...',
 
+  date: 'DATE_CMD',
+
+  whoami: `\x1b[1msercan\x1b[0m
+UID: 1000(sercan) GID: 1000(dev)
+Groups: 1000(dev), 27(sudo), 100(users)
+Home: /home/sercan
+Shell: /bin/holo-shell`,
+
   clear: 'CLEAR'
 };
 
@@ -489,6 +528,14 @@ function runShell(cmd) {
   if (lower === 'clear') {
     const lines = cliScreen.querySelectorAll('.terminal-line');
     lines.forEach((l, i) => { if (i < lines.length - 1) l.remove(); });
+    return;
+  }
+
+  if (lower === 'date') {
+    const now = new Date();
+    outputLine.innerHTML = `<span style="color:var(--primary);">${now.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' })}</span>\n${now.toLocaleTimeString('en-US', { hour12: false })} UTC${now.getTimezoneOffset() > 0 ? '-' : '+'}${String(Math.abs(Math.floor(now.getTimezoneOffset()/60))).padStart(2,'0')}:${String(Math.abs(now.getTimezoneOffset()%60)).padStart(2,'0')}`;
+    cliScreen.insertBefore(outputLine, inputRow);
+    cliScreen.scrollTop = cliScreen.scrollHeight;
     return;
   }
 
@@ -598,6 +645,9 @@ let arcActive = false;
 let arcScore = 0;
 let arcHiScore = 150;
 let arcShield = 5;
+let arcMultiplier = 1;
+let arcConsecutiveKills = 0;
+let arcPowerups = [];
 
 let shipX = arcCanvas.width / 2;
 const shipY = arcCanvas.height - 20;
@@ -649,6 +699,9 @@ arcCanvas.addEventListener('click', (e) => {
     arcBullets = [];
     arcEnemies = [];
     arcParticles = [];
+    arcPowerups = [];
+    arcMultiplier = 1;
+    arcConsecutiveKills = 0;
     enemyWaveLevel = 1;
     shipX = arcCanvas.width / 2;
     return;
@@ -715,6 +768,12 @@ function updateArcade() {
   }
   if (arcFireCooldown > 0) arcFireCooldown--;
 
+  // Shoot flash visual feedback
+  if (arcKeys.space || arcFireCooldown === 5) {
+    arcCanvas.classList.add('arcade-shoot-flash');
+    setTimeout(() => arcCanvas.classList.remove('arcade-shoot-flash'), 100);
+  }
+
   // Update bullets
   for (let i = arcBullets.length - 1; i >= 0; i--) {
     arcBullets[i].y -= arcBullets[i].speed;
@@ -727,6 +786,33 @@ function updateArcade() {
   if (enemySpawnTick > spawnRate) {
     enemySpawnTick = 0;
     spawnEnemy();
+  }
+
+  // Spawn powerups (green shield pickups)
+  if (Math.random() < 0.003) {
+    arcPowerups.push({
+      x: Math.random() * (arcCanvas.width - 14),
+      y: -14,
+      w: 14,
+      h: 14,
+      speed: 0.8
+    });
+  }
+
+  // Update powerups
+  for (let i = arcPowerups.length - 1; i >= 0; i--) {
+    arcPowerups[i].y += arcPowerups[i].speed;
+    if (arcPowerups[i].y > arcCanvas.height) {
+      arcPowerups.splice(i, 1);
+      continue;
+    }
+    // Check collision with ship
+    const p = arcPowerups[i];
+    if (Math.abs((p.x + p.w/2) - shipX) < 18 && Math.abs((p.y + p.h/2) - shipY) < 18) {
+      arcShield++;
+      spawnExplosion(p.x + p.w/2, p.y + p.h/2, '#39ff14');
+      arcPowerups.splice(i, 1);
+    }
   }
 
   // Level up
@@ -746,6 +832,8 @@ function updateArcade() {
     if (e.y > arcCanvas.height) {
       arcEnemies.splice(i, 1);
       arcShield--;
+      arcConsecutiveKills = 0;
+      arcMultiplier = 1;
       continue;
     }
   }
@@ -765,7 +853,10 @@ function updateArcade() {
         if (e.hp <= 0) {
           spawnExplosion(e.x + e.w / 2, e.y + e.h / 2, e.color);
           arcEnemies.splice(ei, 1);
-          arcScore += (e.type === 'big' ? 30 : e.type === 'fast' ? 20 : 10);
+          arcConsecutiveKills++;
+          arcMultiplier = Math.min(8, 1 + Math.floor(arcConsecutiveKills / 5));
+          const baseScore = (e.type === 'big' ? 30 : e.type === 'fast' ? 20 : 10);
+          arcScore += baseScore * arcMultiplier;
         }
         break;
       }
@@ -851,6 +942,22 @@ function drawArcade() {
     arcCtx.fillRect(e.x + e.w - 7, e.y + 4, 4, 4);
   });
 
+  // Powerup items (green shield pickups)
+  arcPowerups.forEach(p => {
+    arcCtx.fillStyle = '#39ff14';
+    arcCtx.fillRect(p.x, p.y, p.w, p.h);
+    // Plus symbol inside
+    arcCtx.fillStyle = '#000';
+    arcCtx.fillRect(p.x + 6, p.y + 3, 2, 8);
+    arcCtx.fillRect(p.x + 3, p.y + 6, 8, 2);
+    // Glow
+    arcCtx.shadowColor = '#39ff14';
+    arcCtx.shadowBlur = 8;
+    arcCtx.fillStyle = 'rgba(57, 255, 20, 0.2)';
+    arcCtx.fillRect(p.x - 2, p.y - 2, p.w + 4, p.h + 4);
+    arcCtx.shadowBlur = 0;
+  });
+
   // Explosion particles
   arcParticles.forEach(p => {
     arcCtx.globalAlpha = p.life / 35;
@@ -858,6 +965,15 @@ function drawArcade() {
     arcCtx.fillRect(p.x, p.y, p.r, p.r);
   });
   arcCtx.globalAlpha = 1.0;
+
+  // Multiplier HUD
+  if (arcMultiplier > 1) {
+    arcCtx.fillStyle = '#ff007f';
+    arcCtx.font = 'bold 12px monospace';
+    arcCtx.textAlign = 'right';
+    arcCtx.fillText(`x${arcMultiplier} COMBO`, arcCanvas.width - 8, 16);
+    arcCtx.textAlign = 'start';
+  }
 
   // Game over
   if (!arcActive) {
@@ -888,6 +1004,9 @@ function startArcadeGame() {
   arcBullets = [];
   arcEnemies = [];
   arcParticles = [];
+  arcPowerups = [];
+  arcMultiplier = 1;
+  arcConsecutiveKills = 0;
   enemyWaveLevel = 1;
   shipX = arcCanvas.width / 2;
   window.addEventListener('keydown', arcKeyDown);
@@ -959,6 +1078,20 @@ function drawDiagnostics() {
   diagCtx.beginPath();
   for (let x = 0; x < diagCanvas.width; x++) {
     const y = midY + Math.sin((x + diagPhase * 2) * 0.2) * 10 + (Math.random() * 4 - 2);
+    if (x === 0) diagCtx.moveTo(x, y);
+    else diagCtx.lineTo(x, y);
+  }
+  diagCtx.stroke();
+
+  // Wave 4: Square wave (disk I/O activity)
+  diagCtx.strokeStyle = 'rgba(255, 0, 127, 0.25)';
+  diagCtx.lineWidth = 1.2;
+  diagCtx.beginPath();
+  for (let x = 0; x < diagCanvas.width; x++) {
+    const period = 40;
+    const offset = (x + diagPhase * 0.5) % period;
+    const sqVal = offset < period / 2 ? -1 : 1;
+    const y = midY + sqVal * 18;
     if (x === 0) diagCtx.moveTo(x, y);
     else diagCtx.lineTo(x, y);
   }
@@ -1059,8 +1192,85 @@ function showScanHud() {
 
 
 // ────────────────────────────────────────────────
-// 12. BOOT SEQUENCE — AUTO-OPEN ABOUT WINDOW
+// 12. BOOT SEQUENCE — ANIMATED SYSTEM STARTUP
 // ────────────────────────────────────────────────
-setTimeout(() => {
-  openWindow('win-about');
-}, 800);
+(function runBootSequence() {
+  const bootOverlay = document.createElement('div');
+  bootOverlay.className = 'boot-overlay';
+  bootOverlay.innerHTML = `
+    <div class="boot-line" data-delay="0">[ <span class="ok">BIOS</span> ] BIOS CHECK... <span class="ok">OK</span></div>
+    <div class="boot-line" data-delay="1">[ <span class="loading">KERN</span> ] LOADING KERNEL MODULES...</div>
+    <div class="boot-line" data-delay="2">[ <span class="loading">GPU</span>  ] INITIALIZING DISPLAY DRIVER...</div>
+    <div class="boot-line" data-delay="3">[ <span class="loading">FS</span>   ] MOUNTING FILESYSTEM...</div>
+    <div class="boot-line" data-delay="4">[ <span class="loading">WM</span>   ] STARTING WINDOW MANAGER...</div>
+    <div class="boot-line" data-delay="5">[ <span class="ok">READY</span> ] SERCAN_OS v3.0 READY<span class="boot-cursor"></span></div>
+  `;
+  document.body.appendChild(bootOverlay);
+
+  const lines = bootOverlay.querySelectorAll('.boot-line');
+  lines.forEach((line, i) => {
+    setTimeout(() => {
+      line.classList.add('visible');
+    }, 400 + i * 550);
+  });
+
+  // Total boot time: 400 + 5*550 = 3150ms, then wait a bit and fade
+  const totalBootTime = 400 + (lines.length - 1) * 550 + 800;
+  setTimeout(() => {
+    bootOverlay.classList.add('fade-out');
+    setTimeout(() => {
+      bootOverlay.remove();
+      openWindow('win-about');
+    }, 900);
+  }, totalBootTime);
+})();
+
+
+// ────────────────────────────────────────────────
+// 13. TYPING EFFECT — ABOUT WINDOW CONTENT
+// ────────────────────────────────────────────────
+let aboutTyped = false;
+const originalOpenWindow = openWindow;
+
+// Override openWindow to add typing effect for About
+function openWindow(id) {
+  originalOpenWindow(id);
+
+  if (id === 'win-about' && !aboutTyped) {
+    aboutTyped = true;
+    const aboutBody = document.querySelector('#win-about .window-body');
+    if (!aboutBody) return;
+
+    const originalHTML = aboutBody.innerHTML;
+    const textContent = aboutBody.innerText;
+    aboutBody.innerHTML = '';
+
+    // Create a typing container
+    const typingEl = document.createElement('div');
+    typingEl.style.whiteSpace = 'pre-wrap';
+    typingEl.style.fontFamily = 'var(--font-mono)';
+    typingEl.style.fontSize = '0.75rem';
+    typingEl.style.lineHeight = '1.5';
+    typingEl.style.color = 'var(--text-main)';
+    aboutBody.appendChild(typingEl);
+
+    let charIndex = 0;
+    const typeSpeed = 12;
+
+    function typeChar() {
+      if (charIndex < textContent.length) {
+        typingEl.textContent += textContent[charIndex];
+        charIndex++;
+        // Scroll to bottom
+        aboutBody.scrollTop = aboutBody.scrollHeight;
+        setTimeout(typeChar, typeSpeed);
+      } else {
+        // Typing done, restore full HTML for proper formatting
+        setTimeout(() => {
+          aboutBody.innerHTML = originalHTML;
+        }, 300);
+      }
+    }
+    setTimeout(typeChar, 200);
+  }
+}
