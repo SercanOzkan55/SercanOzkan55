@@ -519,12 +519,12 @@ sercan@mainframe:~$ git log --oneline --graph -15
 </p>
 
 <p align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=SercanOzkan55&show_icons=true&hide_border=true&bg_color=05050a&title_color=FCEE0A&icon_color=00f0ff&text_color=ffffff&ring_color=00f0ff" />
+  <img width="49%" src="https://github-readme-stats-fast.vercel.app/api?username=SercanOzkan55&show_icons=true&hide_border=true&bg_color=05050a&title_color=FCEE0A&icon_color=00f0ff&text_color=ffffff&ring_color=00f0ff" />
   <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=SercanOzkan55&hide_border=true&background=05050a&ring=FCEE0A&fire=00f0ff&currStreakLabel=FCEE0A&sideLabels=00f0ff&dates=ffffff&sideNums=FCEE0A&currStreakNum=00f0ff" />
 </p>
 
 <p align="center">
-  <img width="45%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&hide_border=true&bg_color=05050a&title_color=FCEE0A&text_color=ffffff" />
+  <img width="45%" src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&hide_border=true&bg_color=05050a&title_color=FCEE0A&text_color=ffffff" />
 </p>
 
 <p align="center">
