@@ -222,6 +222,7 @@ body {
   border-radius: 4px;
   transition: all 0.2s ease;
   animation: floatIcon 3s ease-in-out infinite;
+  touch-action: manipulation;
 }
 
 .desktop-icon:nth-child(1) { animation-delay: 0s; }
@@ -302,6 +303,7 @@ body {
   padding: 5px 10px;
   cursor: pointer;
   white-space: nowrap;
+  touch-action: manipulation;
 }
 
 .window-tab.active {
@@ -368,6 +370,7 @@ body {
   line-height: 12px;
   text-align: center;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .win-btn:hover {

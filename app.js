@@ -50,10 +50,13 @@ const themeMap = {
 };
 
 document.querySelectorAll('[data-theme]').forEach(btn => {
-  btn.addEventListener('click', () => {
+  const applyTheme = (e) => {
+    e.preventDefault();
     const cls = themeMap[btn.dataset.theme];
     document.body.className = cls || '';
-  });
+  };
+  btn.addEventListener('click', applyTheme);
+  btn.addEventListener('touchstart', applyTheme, { passive: false });
 });
 
 
@@ -166,7 +169,8 @@ function refreshTaskbar() {
     const tab = document.createElement('button');
     tab.className = 'window-tab' + (activeWinId === id ? ' active' : '');
     tab.textContent = titleText.replace('[', '').replace(']', '').split(' - ')[1] || titleText;
-    tab.addEventListener('click', () => {
+    const handleTabClick = (e) => {
+      e.preventDefault();
       const w = document.getElementById(id);
       if (w.style.display === 'none') {
         w.style.display = 'flex';
@@ -179,37 +183,43 @@ function refreshTaskbar() {
         }
       }
       refreshTaskbar();
-    });
+    };
+    tab.addEventListener('click', handleTabClick);
+    tab.addEventListener('touchstart', handleTabClick, { passive: false });
     taskbarTabs.appendChild(tab);
   });
 }
 
-// Desktop icon click -> open window
+// Desktop icon click/touch -> open window
 desktopIcons.forEach(icon => {
-  icon.addEventListener('dblclick', () => {
+  const triggerOpen = (e) => {
+    e.preventDefault();
     const winId = icon.dataset.open;
     openWindow(winId);
-  });
-  // Single click also works (more intuitive)
-  icon.addEventListener('click', () => {
-    const winId = icon.dataset.open;
-    openWindow(winId);
-  });
+  };
+  icon.addEventListener('click', triggerOpen);
+  icon.addEventListener('touchstart', triggerOpen, { passive: false });
 });
 
 // Window close & minimize buttons
 document.querySelectorAll('.win-close').forEach(btn => {
-  btn.addEventListener('click', (e) => {
+  const handleClose = (e) => {
+    e.preventDefault();
     e.stopPropagation();
     closeWindow(btn.dataset.win);
-  });
+  };
+  btn.addEventListener('click', handleClose);
+  btn.addEventListener('touchstart', handleClose, { passive: false });
 });
 
 document.querySelectorAll('.win-min').forEach(btn => {
-  btn.addEventListener('click', (e) => {
+  const handleMin = (e) => {
+    e.preventDefault();
     e.stopPropagation();
     minimizeWindow(btn.dataset.win);
-  });
+  };
+  btn.addEventListener('click', handleMin);
+  btn.addEventListener('touchstart', handleMin, { passive: false });
 });
 
 // Titlebar click brings to front
@@ -298,10 +308,13 @@ document.addEventListener('touchmove', (e) => {
 
 document.addEventListener('touchend', () => { dragTarget = null; });
 
-// Start menu opens About on click
-document.getElementById('btn-start-os').addEventListener('click', () => {
+// Start menu opens About on click/touch
+const handleStart = (e) => {
+  e.preventDefault();
   openWindow('win-about');
-});
+};
+document.getElementById('btn-start-os').addEventListener('click', handleStart);
+document.getElementById('btn-start-os').addEventListener('touchstart', handleStart, { passive: false });
 
 
 // ────────────────────────────────────────────────
