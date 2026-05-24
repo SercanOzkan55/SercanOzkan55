@@ -11,6 +11,12 @@
   <img src="https://img.shields.io/badge/Status-Building%20Real%20Projects-00E5FF?style=for-the-badge&labelColor=020617" />
 </p>
 
+<p align="center">
+  <a href="https://SercanOzkan55.github.io/SercanOzkan55/">
+    <img src="https://img.shields.io/badge/🌐%20View%20My%20Interactive%20Neon%20Portfolio-00E5FF?style=for-the-badge&logo=google-chrome&logoColor=020617&labelColor=020617" />
+  </a>
+</p>
+
 ---
 
 <table>
