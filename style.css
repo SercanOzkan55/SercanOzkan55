@@ -902,3 +902,64 @@ body {
     padding: 3px 6px;
   }
 }
+
+/* Compiler Window Styles */
+.comp-tab-btn {
+  transition: all 0.2s ease;
+  outline: none;
+}
+.comp-tab-btn:hover {
+  background: rgba(252, 238, 10, 0.05) !important;
+  color: var(--primary) !important;
+}
+.comp-tab-btn.active {
+  background: var(--primary) !important;
+  color: var(--bg-darker) !important;
+  font-weight: bold;
+}
+.comp-tab-content {
+  display: none;
+}
+.comp-tab-content.active {
+  display: block;
+}
+#compiler-editor-textarea::selection {
+  background: var(--primary);
+  color: var(--bg-darker);
+}
+.lexer-row-highlight {
+  background: rgba(0, 240, 255, 0.15) !important;
+  color: #fff !important;
+  box-shadow: inset 0 0 5px var(--secondary);
+}
+.lexer-row-clickable {
+  cursor: pointer;
+}
+.lexer-row-clickable:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.diag-error-item {
+  border: 1px solid #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 6px;
+  border-left: 4px solid #ef4444;
+  font-size: 0.65rem;
+  color: #fca5a5;
+  cursor: pointer;
+}
+.diag-error-item:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+.diag-success-item {
+  border: 1px solid #22c55e;
+  background: rgba(34, 197, 94, 0.1);
+  padding: 8px;
+  border-left: 4px solid #22c55e;
+  font-size: 0.65rem;
+  color: #86efac;
+}
+.gutter-line-active {
+  color: var(--primary) !important;
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--primary-glow);
+}

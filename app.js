@@ -96,6 +96,7 @@ function openWindow(id) {
   if (id === 'win-matrix') startMatrixRain();
   if (id === 'win-arcade') startArcadeGame();
   if (id === 'win-diagnostics') startDiagnostics();
+  if (id === 'win-compiler') initCompilerWindow();
 
   // Trigger typing effect for About window
   if (id === 'win-about' && !aboutTyped) {
@@ -1255,7 +1256,317 @@ function showScanHud() {
 
 
 // ────────────────────────────────────────────────
-// 12. BOOT SEQUENCE — ANIMATED SYSTEM STARTUP
+// 12. COMPILER APP WINDOW LOGIC
+// ────────────────────────────────────────────────
+let compilerInitialized = false;
+function initCompilerWindow() {
+  if (compilerInitialized) return;
+  compilerInitialized = true;
+
+  const editor = document.getElementById('compiler-editor-textarea');
+  const gutter = document.getElementById('editor-line-gutter');
+  const lineCounter = document.getElementById('editor-line-counter');
+
+  // Gutter update function
+  function updateGutter() {
+    const lines = editor.value.split('\n');
+    const lineCount = Math.max(1, lines.length);
+    let gutterHTML = '';
+    for (let i = 1; i <= lineCount; i++) {
+      gutterHTML += `<div>${i}</div>`;
+    }
+    gutter.innerHTML = gutterHTML;
+    syncGutterScroll();
+  }
+
+  function syncGutterScroll() {
+    gutter.scrollTop = editor.scrollTop;
+  }
+
+  editor.addEventListener('input', updateGutter);
+  editor.addEventListener('scroll', syncGutterScroll);
+
+  // Track cursor position
+  function updateCursorPos() {
+    const text = editor.value;
+    const selStart = editor.selectionStart;
+    
+    let line = 1;
+    let col = 1;
+    for (let i = 0; i < selStart; i++) {
+      if (text[i] === '\n') {
+        line++;
+        col = 1;
+      } else {
+        col++;
+      }
+    }
+    lineCounter.textContent = `LN ${line}, COL ${col}`;
+
+    // Highlight active line in gutter
+    const gutterDivs = gutter.querySelectorAll('div');
+    gutterDivs.forEach((div, idx) => {
+      if (idx + 1 === line) {
+        div.className = 'gutter-line-active';
+      } else {
+        div.className = '';
+      }
+    });
+  }
+
+  editor.addEventListener('keyup', updateCursorPos);
+  editor.addEventListener('click', updateCursorPos);
+  editor.addEventListener('focus', updateCursorPos);
+
+  // Tab Switching logic
+  const tabButtons = document.querySelectorAll('.comp-tab-btn');
+  const tabContents = document.querySelectorAll('.comp-tab-content');
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tabId = btn.dataset.tab;
+      
+      tabButtons.forEach(b => {
+        b.classList.remove('active');
+        b.style.color = 'var(--text-muted)';
+      });
+      tabContents.forEach(c => {
+        c.classList.remove('active');
+        c.style.display = 'none';
+      });
+
+      btn.classList.add('active');
+      btn.style.color = 'var(--primary)';
+      
+      const targetContent = document.getElementById(tabId);
+      targetContent.classList.add('active');
+      targetContent.style.display = 'block';
+    });
+  });
+
+  // Action Buttons
+  const sampleBtn = document.getElementById('btn-comp-sample');
+  const uploadBtn = document.getElementById('btn-comp-upload');
+  const fileInput = document.getElementById('compiler-file-input');
+  const clearBtn = document.getElementById('btn-comp-clear');
+  const runBtn = document.getElementById('btn-comp-run');
+
+  uploadBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    fileInput.click();
+  });
+
+  fileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      editor.value = evt.target.result;
+      updateGutter();
+      updateCursorPos();
+    };
+    reader.readAsText(file);
+  });
+
+  sampleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    editor.value = `// Sample Two-Pass Compiler Program
+int x;
+int y;
+float result;
+
+x = 10;
+y = 3;
+result = x + y * 2;
+
+if (result > 15) {
+  print("Result is large");
+} else {
+  print("Result is small");
+}
+
+while (x > 0) {
+  x = x - 1;
+}
+`;
+    updateGutter();
+    updateCursorPos();
+  });
+
+  clearBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    editor.value = '';
+    updateGutter();
+    updateCursorPos();
+    resetCompilationViews();
+  });
+
+  const compilerEngine = new CompilerEngine();
+
+  function resetCompilationViews() {
+    document.getElementById('lexer-token-table-body').innerHTML = `
+      <tr>
+        <td colspan="3" style="text-align:center; padding:10px; color:var(--text-muted);">No token stream loaded. Click RUN_COMPILER().</td>
+      </tr>
+    `;
+    document.getElementById('symbol-table-body').innerHTML = `
+      <tr>
+        <td colspan="5" style="text-align:center; padding:10px; color:var(--text-muted);">Symbol table empty.</td>
+      </tr>
+    `;
+    document.getElementById('ast-tree-view').textContent = 'No AST generated.';
+    document.getElementById('tac-code-view').textContent = 'No IR generated.';
+    document.getElementById('diagnostics-summary').innerHTML = '<span style="color:var(--text-muted);">STATUS: </span><span style="color:var(--primary);">IDLE</span>';
+    document.getElementById('diagnostics-errors-list').innerHTML = '';
+  }
+
+  runBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const sourceCode = editor.value;
+    if (!sourceCode.trim()) {
+      alert("Source code is empty.");
+      return;
+    }
+
+    // Run compile!
+    const results = compilerEngine.compile(sourceCode);
+    
+    // 1. Render Lexer Tokens
+    const tokenTableBody = document.getElementById('lexer-token-table-body');
+    if (results.tokens.length === 0) {
+      tokenTableBody.innerHTML = `
+        <tr>
+          <td colspan="3" style="text-align:center; padding:10px; color:var(--text-muted);">No tokens identified.</td>
+        </tr>
+      `;
+    } else {
+      tokenTableBody.innerHTML = results.tokens.map((tok, idx) => `
+        <tr class="lexer-row-clickable" data-line="${tok.line}" data-col="${tok.col}" data-token-idx="${idx}">
+          <td style="padding:4px; border-bottom:1px solid rgba(255,255,255,0.05);">${tok.line}</td>
+          <td style="padding:4px; border-bottom:1px solid rgba(255,255,255,0.05); color:var(--primary); font-weight:bold;">${escapeHtml(tok.value)}</td>
+          <td style="padding:4px; border-bottom:1px solid rgba(255,255,255,0.05); color:var(--secondary);">${tok.type}</td>
+        </tr>
+      `).join('');
+
+      // Add click listener to token rows to highlight in source code
+      const rows = tokenTableBody.querySelectorAll('tr');
+      rows.forEach(row => {
+        row.addEventListener('click', () => {
+          rows.forEach(r => r.classList.remove('lexer-row-highlight'));
+          row.classList.add('lexer-row-highlight');
+          const line = parseInt(row.dataset.line, 10);
+          highlightLineInEditor(line);
+        });
+      });
+    }
+
+    // 2. Render Symbol Table
+    const symTableBody = document.getElementById('symbol-table-body');
+    if (results.symbolTable.length === 0) {
+      symTableBody.innerHTML = `
+        <tr>
+          <td colspan="5" style="text-align:center; padding:10px; color:var(--text-muted);">Symbol table is empty (no declarations).</td>
+        </tr>
+      `;
+    } else {
+      symTableBody.innerHTML = results.symbolTable.map(sym => `
+        <tr>
+          <td style="padding:4px; border-bottom:1px solid rgba(255,255,255,0.05); color:var(--primary); font-weight:bold;">${escapeHtml(sym.name)}</td>
+          <td style="padding:4px; border-bottom:1px solid rgba(255,255,255,0.05); color:var(--secondary);">${sym.type}</td>
+          <td style="padding:4px; border-bottom:1px solid rgba(255,255,255,0.05);">${sym.scopeLevel}</td>
+          <td style="padding:4px; border-bottom:1px solid rgba(255,255,255,0.05); font-family:var(--font-mono);">0x${sym.memoryOffset.toString(16).toUpperCase().padStart(4, '0')}</td>
+          <td style="padding:4px; border-bottom:1px solid rgba(255,255,255,0.05);">${sym.declaredLine}</td>
+        </tr>
+      `).join('');
+    }
+
+    // 3. Render AST
+    const astView = document.getElementById('ast-tree-view');
+    if (results.ast) {
+      astView.textContent = results.parseTreeText;
+    } else {
+      astView.textContent = "No AST could be generated due to compilation errors.";
+    }
+
+    // 3.5. Render TAC (IR Code)
+    const tacView = document.getElementById('tac-code-view');
+    if (results.ast && results.errors.length === 0) {
+      tacView.textContent = results.tacText;
+    } else {
+      tacView.textContent = "No IR (TAC) generated due to compilation errors.";
+    }
+
+    // 4. Render Diagnostics & Errors
+    const diagSummary = document.getElementById('diagnostics-summary');
+    const diagErrorsList = document.getElementById('diagnostics-errors-list');
+    diagErrorsList.innerHTML = '';
+
+    if (results.errors.length === 0) {
+      diagSummary.innerHTML = '<span style="color:var(--text-muted);">STATUS: </span><span style="color:#22c55e; font-weight:bold;">SUCCESS</span>';
+      diagErrorsList.innerHTML = `
+        <div class="diag-success-item">
+          <strong>COMPILATION SUCCESSFUL!</strong><br>
+          • Pass 1 (Lexer) completed: ${results.tokens.length} tokens.<br>
+          • Pass 2 (Parser) completed successfully.<br>
+          • Semantic checks passed: All variables declared properly & type systems match.
+        </div>
+      `;
+    } else {
+      diagSummary.innerHTML = `<span style="color:var(--text-muted);">STATUS: </span><span style="color:#ef4444; font-weight:bold;">FAILED (${results.errors.length} ERRORS)</span>`;
+      diagErrorsList.innerHTML = results.errors.map(err => `
+        <div class="diag-error-item" data-line="${err.line}">
+          <strong>${err.phase} Error (Line ${err.line}):</strong> ${escapeHtml(err.message)}
+        </div>
+      `).join('');
+
+      // Add click handler to diagnostics errors to jump to error line
+      const errorDivs = diagErrorsList.querySelectorAll('.diag-error-item');
+      errorDivs.forEach(div => {
+        div.addEventListener('click', () => {
+          const line = parseInt(div.dataset.line, 10);
+          highlightLineInEditor(line);
+        });
+      });
+    }
+
+    // Swap to Diagnostics tab automatically if errors exist, otherwise Lexer
+    const targetTab = results.errors.length > 0 ? 'tab-diagnostics' : 'tab-lexer';
+    const activeBtn = document.querySelector(`.comp-tab-btn[data-tab="${targetTab}"]`);
+    if (activeBtn) activeBtn.click();
+  });
+
+  function highlightLineInEditor(line) {
+    const text = editor.value;
+    const lines = text.split('\n');
+    if (line > lines.length) return;
+
+    let startPos = 0;
+    for (let i = 0; i < line - 1; i++) {
+      startPos += lines[i].length + 1; // +1 for the newline
+    }
+    const endPos = startPos + lines[line - 1].length;
+
+    editor.focus();
+    editor.setSelectionRange(startPos, endPos);
+    
+    // Scroll editor to center the highlighted text
+    const lineHeight = 16.8; // line-height in px
+    editor.scrollTop = (line - 3) * lineHeight;
+    updateCursorPos();
+  }
+
+  function escapeHtml(string) {
+    return String(string).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  // Initial Gutter Setup
+  updateGutter();
+}
+
+
+// ────────────────────────────────────────────────
+// 13. BOOT SEQUENCE — ANIMATED SYSTEM STARTUP
 // ────────────────────────────────────────────────
 (function runBootSequence() {
   const bootOverlay = document.createElement('div');

@@ -75,6 +75,11 @@
               <span>CONTACT_MAIL</span>
             </div>
 
+            <div class="desktop-icon" data-open="win-compiler">
+              <i class="fa-solid fa-laptop-code"></i>
+              <span>COMPILER.EXE</span>
+            </div>
+
             <div class="desktop-icon" data-open="win-theme">
               <i class="fa-solid fa-palette"></i>
               <span>THEME_MANAGER</span>
@@ -381,6 +386,123 @@ Idea Model -> Logical Prototype -> DB Integration -> UI Polish</pre>
             </div>
           </div>
 
+          <!-- 11. MANUALLY CODED COMPILER WINDOW -->
+          <div class="window" id="win-compiler" style="top:30px; left:80px; width:760px; height:500px; display:none;">
+            <div class="window-titlebar">
+              <span>[EXE] - COMPILER_DESIGN.EXE (Two-Pass)</span>
+              <div class="window-controls">
+                <button class="win-btn win-min" data-win="win-compiler">_</button>
+                <button class="win-btn win-close" data-win="win-compiler">X</button>
+              </div>
+            </div>
+            <div class="window-body" style="padding:0.5rem; display:flex; flex-direction:column; gap:0.5rem; overflow:hidden; max-height:none; height:calc(100% - 28px);">
+              <!-- Top Control Bar -->
+              <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px dashed var(--primary); padding-bottom:0.5rem;">
+                <div style="font-size:0.6rem; color:var(--text-main);">
+                  LANGUAGE: SUBSET_HIGH_LEVEL • PASSES: 2 • COMPILER: HAND-CODED
+                </div>
+                 <div style="display:flex; gap:0.5rem;">
+                  <button class="theme-opt-btn" id="btn-comp-sample" style="padding:4px 10px; font-size:0.5rem;">LOAD_SAMPLE</button>
+                  <button class="theme-opt-btn" id="btn-comp-upload" style="padding:4px 10px; font-size:0.5rem;">UPLOAD_FILE</button>
+                  <button class="theme-opt-btn" id="btn-comp-clear" style="padding:4px 10px; font-size:0.5rem;">CLEAR</button>
+                  <button class="form-submit-btn" id="btn-comp-run" style="padding:4px 12px; font-size:0.55rem; box-shadow:0 0 8px var(--primary-glow);">RUN_COMPILER()</button>
+                  <input type="file" id="compiler-file-input" style="display:none;" accept=".txt,.src,.c,.cpp,.h,.txt"/>
+                </div>
+              </div>
+
+              <!-- Main Split Panels -->
+              <div style="display:flex; gap:0.5rem; flex-grow:1; overflow:hidden; height:calc(100% - 40px);">
+                <!-- Left Pane: Code Editor -->
+                <div style="width:45%; display:flex; flex-direction:column; border:1px solid var(--primary); background:var(--bg-darker); overflow:hidden;">
+                  <div style="background:var(--primary); color:var(--bg-darker); font-size:0.5rem; font-weight:bold; padding:4px 8px; display:flex; justify-content:space-between;">
+                    <span>SOURCE_EDITOR.SRC</span>
+                    <span id="editor-line-counter">LN 1, COL 1</span>
+                  </div>
+                  <div style="display:flex; flex-grow:1; overflow:hidden; position:relative;">
+                    <div id="editor-line-gutter" style="width:30px; background:rgba(0,0,0,0.3); border-right:1px solid rgba(255,255,255,0.05); color:var(--text-muted); font-family:var(--font-mono); font-size:0.7rem; text-align:right; padding:6px 6px 6px 0; user-select:none; line-height:1.4; overflow:hidden;">
+                      1
+                    </div>
+                    <textarea id="compiler-editor-textarea" style="flex-grow:1; background:transparent; border:none; outline:none; color:var(--text-main); font-family:var(--font-mono); font-size:0.7rem; line-height:1.4; padding:6px; resize:none; overflow-y:auto; word-break:keep-all; white-space:pre;" spellcheck="false" placeholder="// Type source code here..."></textarea>
+                  </div>
+                </div>
+
+                <!-- Right Pane: Compilation Results Tabs -->
+                <div style="width:55%; display:flex; flex-direction:column; border:1px solid var(--primary); overflow:hidden; background:rgba(0,0,0,0.25);">
+                  <!-- Tabs Head -->
+                  <div style="display:flex; background:var(--bg-darker); border-bottom:1px solid var(--primary); font-size:0.5rem;">
+                    <button class="comp-tab-btn active" data-tab="tab-lexer" style="flex:1; background:transparent; border:none; border-right:1px solid var(--primary); color:var(--primary); padding:6px; cursor:pointer; font-family:var(--font-retro); font-size:0.42rem;">LEXER</button>
+                    <button class="comp-tab-btn" data-tab="tab-symtable" style="flex:1; background:transparent; border:none; border-right:1px solid var(--primary); color:var(--text-muted); padding:6px; cursor:pointer; font-family:var(--font-retro); font-size:0.42rem;">SYMBOLS</button>
+                    <button class="comp-tab-btn" data-tab="tab-ast" style="flex:1; background:transparent; border:none; border-right:1px solid var(--primary); color:var(--text-muted); padding:6px; cursor:pointer; font-family:var(--font-retro); font-size:0.42rem;">AST_TREE</button>
+                    <button class="comp-tab-btn" data-tab="tab-tac" style="flex:1; background:transparent; border:none; border-right:1px solid var(--primary); color:var(--text-muted); padding:6px; cursor:pointer; font-family:var(--font-retro); font-size:0.42rem;">IR_CODE</button>
+                    <button class="comp-tab-btn" data-tab="tab-diagnostics" style="flex:1; background:transparent; border:none; color:var(--text-muted); padding:6px; cursor:pointer; font-family:var(--font-retro); font-size:0.42rem;">DIAGS</button>
+                  </div>
+                  <!-- Tabs Contents -->
+                  <div style="flex-grow:1; overflow-y:auto; padding:0.5rem; position:relative;">
+                    
+                    <!-- 1. Lexer Tab -->
+                    <div class="comp-tab-content active" id="tab-lexer">
+                      <table style="width:100%; border-collapse:collapse; font-size:0.65rem; text-align:left;">
+                        <thead>
+                          <tr style="border-bottom:1px solid var(--primary); color:var(--primary);">
+                            <th style="padding:4px;">LINE</th>
+                            <th style="padding:4px;">TOKEN</th>
+                            <th style="padding:4px;">TYPE</th>
+                          </tr>
+                        </thead>
+                        <tbody id="lexer-token-table-body">
+                          <tr>
+                            <td colspan="3" style="text-align:center; padding:10px; color:var(--text-muted);">No token stream loaded. Click RUN_COMPILER().</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!-- 2. Symbol Table Tab -->
+                    <div class="comp-tab-content" id="tab-symtable" style="display:none;">
+                      <table style="width:100%; border-collapse:collapse; font-size:0.65rem; text-align:left;">
+                        <thead>
+                          <tr style="border-bottom:1px solid var(--primary); color:var(--primary);">
+                            <th style="padding:4px;">NAME</th>
+                            <th style="padding:4px;">TYPE</th>
+                            <th style="padding:4px;">SCOPE</th>
+                            <th style="padding:4px;">OFFSET</th>
+                            <th style="padding:4px;">LINE</th>
+                          </tr>
+                        </thead>
+                        <tbody id="symbol-table-body">
+                          <tr>
+                            <td colspan="5" style="text-align:center; padding:10px; color:var(--text-muted);">Symbol table empty.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!-- 3. AST / Parse Tree Tab -->
+                    <div class="comp-tab-content" id="tab-ast" style="display:none;">
+                      <pre id="ast-tree-view" style="font-family:var(--font-mono); font-size:0.65rem; color:var(--text-main); white-space:pre; margin:0; line-height:1.3;">No AST generated.</pre>
+                    </div>
+
+                    <!-- 3.5. IR Code (TAC) Tab -->
+                    <div class="comp-tab-content" id="tab-tac" style="display:none;">
+                      <pre id="tac-code-view" style="font-family:var(--font-mono); font-size:0.65rem; color:var(--text-main); white-space:pre; margin:0; line-height:1.3; color:#a3ffa3; text-shadow: 0 0 5px rgba(163, 255, 163, 0.35);">No IR generated.</pre>
+                    </div>
+
+                    <!-- 4. Diagnostics Tab -->
+                    <div class="comp-tab-content" id="tab-diagnostics" style="display:none;">
+                      <div id="diagnostics-summary" style="margin-bottom:0.8rem; font-size:0.7rem;">
+                        <span style="color:var(--text-muted);">STATUS: </span><span style="color:var(--primary);">IDLE</span>
+                      </div>
+                      <div id="diagnostics-errors-list" style="display:flex; flex-direction:column; gap:0.4rem;">
+                        <!-- error lines -->
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div> <!-- /desktop-space -->
 
         <!-- Bottom Taskbar Control Center -->
@@ -407,6 +529,7 @@ Idea Model -> Logical Prototype -> DB Integration -> UI Polish</pre>
     </div> <!-- /crt-glass -->
   </div> <!-- /monitor-bezel -->
 
+  <script src="compiler_engine.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
