@@ -80,6 +80,11 @@
               <span>COMPILER.EXE</span>
             </div>
 
+            <div class="desktop-icon" data-open="win-cpu-scheduler">
+              <i class="fa-solid fa-microchip"></i>
+              <span>CPU_SCHED.EXE</span>
+            </div>
+
             <div class="desktop-icon" data-open="win-theme">
               <i class="fa-solid fa-palette"></i>
               <span>THEME_MANAGER</span>
@@ -126,7 +131,8 @@ Idea Model -> Logical Prototype -> DB Integration -> UI Polish</pre>
               <ul class="tree-list">
                 <li class="tree-node"><span class="tree-file" data-proj="cv">cv_analyzer.py</span></li>
                 <li class="tree-node"><span class="tree-file" data-proj="space">space_duel.js</span></li>
-                <li class="tree-node last"><span class="tree-file" data-proj="food">foodapp_server.js</span></li>
+                <li class="tree-node"><span class="tree-file" data-proj="food">foodapp_server.js</span></li>
+                <li class="tree-node last"><span class="tree-file" data-proj="cpu">cpu_scheduler.java</span></li>
               </ul>
               
               <!-- Expansion area -->
@@ -500,6 +506,67 @@ Idea Model -> Logical Prototype -> DB Integration -> UI Polish</pre>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <!-- 12. CPU SCHEDULING SIMULATOR WINDOW -->
+          <div class="window" id="win-cpu-scheduler" style="top:55px; left:120px; width:760px; height:500px; display:none;">
+            <div class="window-titlebar">
+              <span>[SIM] - CPU_SCHEDULER.EXE</span>
+              <div class="window-controls">
+                <button class="win-btn win-min" data-win="win-cpu-scheduler">_</button>
+                <button class="win-btn win-close" data-win="win-cpu-scheduler">X</button>
+              </div>
+            </div>
+            <div class="window-body cpu-sim-body">
+              <div class="cpu-sim-header">
+                <div>
+                  <h4>CPU Scheduling Simulator</h4>
+                  <p>Discrete-time FCFS / RR / STCF model with CPU + I/O dual-row Gantt visualization.</p>
+                </div>
+                <a class="form-submit-btn cpu-sim-link" href="https://github.com/SercanOzkan55/cpu-scheduling-simulator" target="_blank">OPEN_REPO()</a>
+              </div>
+
+              <div class="cpu-sim-grid">
+                <div class="cpu-sim-panel">
+                  <h5>PROCESS_TABLE</h5>
+                  <table class="cpu-sim-table">
+                    <thead>
+                      <tr><th>PID</th><th>ARR</th><th>BURSTS</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>P1</td><td>0</td><td>CPU:6, IO:4, CPU:5</td></tr>
+                      <tr><td>P2</td><td>1</td><td>CPU:3, IO:5, CPU:4</td></tr>
+                      <tr><td>P3</td><td>2</td><td>CPU:8, IO:3, CPU:2</td></tr>
+                      <tr><td>P4</td><td>4</td><td>CPU:4, IO:4, CPU:6</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="cpu-sim-panel">
+                  <h5>METRICS</h5>
+                  <div class="cpu-sim-metric"><span>Algorithm</span><strong>Round Robin q=3</strong></div>
+                  <div class="cpu-sim-metric"><span>Avg Waiting</span><strong>17.50</strong></div>
+                  <div class="cpu-sim-metric"><span>CPU Util</span><strong>100.00%</strong></div>
+                  <div class="cpu-sim-metric"><span>Clock</span><strong>t = 38</strong></div>
+                </div>
+              </div>
+
+              <div class="cpu-gantt-panel">
+                <div class="cpu-gantt-label">CPU</div>
+                <div class="cpu-gantt-row">
+                  <span class="p1" style="width:8%;">P1</span><span class="p2" style="width:8%;">P2</span><span class="p3" style="width:8%;">P3</span><span class="p1" style="width:8%;">P1</span><span class="p4" style="width:8%;">P4</span><span class="p3" style="width:8%;">P3</span><span class="p2" style="width:8%;">P2</span><span class="p4" style="width:5%;">P4</span><span class="p1" style="width:8%;">P1</span><span class="p3" style="width:5%;">P3</span><span class="p2" style="width:3%;">P2</span><span class="p1" style="width:5%;">P1</span><span class="p4" style="width:8%;">P4</span><span class="p3" style="width:5%;">P3</span><span class="p4" style="width:8%;">P4</span>
+                </div>
+                <div class="cpu-gantt-label">I/O</div>
+                <div class="cpu-gantt-row">
+                  <span class="idle" style="width:16%;">IDLE</span><span class="p2" style="width:13%;">P2</span><span class="idle" style="width:3%;">IDLE</span><span class="p1" style="width:11%;">P1</span><span class="idle" style="width:16%;">IDLE</span><span class="p4" style="width:11%;">P4</span><span class="idle" style="width:3%;">IDLE</span><span class="p3" style="width:8%;">P3</span><span class="idle" style="width:21%;">IDLE</span>
+                </div>
+                <div class="cpu-gantt-axis">
+                  <span>0</span><span>6</span><span>12</span><span>18</span><span>24</span><span>30</span><span>38</span>
+                </div>
+              </div>
+
+              <p class="cpu-sim-note">This web window is a portfolio simulation preview. The full Java Swing implementation and formal report live in the repository.</p>
             </div>
           </div>
 
