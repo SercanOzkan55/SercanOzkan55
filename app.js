@@ -458,6 +458,12 @@ const projectDB = {
     desc: 'Full-stack food catalog ordering platform. Robust REST endpoints, clean state controllers, and relational database query optimizers.',
     stack: 'NodeJS, ExpressJS, MongoDB, REST API',
     link: 'https://github.com/SercanOzkan55/FoodApp'
+  },
+  cpu: {
+    name: 'CPU_SCHEDULER.JAVA',
+    desc: 'Operating Systems assignment simulator for FCFS, Round Robin, and STCF scheduling. Includes CPU/I-O burst handling, preemption logic, dual-row Gantt visualization, and report metrics.',
+    stack: 'Java Swing, Discrete-Time Simulation, CPU Scheduling',
+    link: 'https://github.com/SercanOzkan55/cpu-scheduling-simulator'
   }
 };
 
