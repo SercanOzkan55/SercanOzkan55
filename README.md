@@ -248,9 +248,15 @@ C:\WORKSPACE\SERCAN_ÖZKAN\
 
 <div align="center">
   <h2>🐍 Contribution Snake</h2>
-  <br/>
-  <img src="https://raw.githubusercontent.com/SercanOzkan55/SercanOzkan55/output/github-snake-dark.svg" alt="Snake animation" width="85%" />
 </div>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SercanOzkan55/SercanOzkan55/output/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SercanOzkan55/SercanOzkan55/output/github-snake.svg" />
+    <img alt="github-snake" src="https://raw.githubusercontent.com/SercanOzkan55/SercanOzkan55/output/github-snake.svg" />
+  </picture>
+</p>
 
 ---
 
