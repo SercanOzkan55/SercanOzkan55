@@ -16,11 +16,6 @@
     <img src="https://img.shields.io/badge/Dual%20Major-CE%20%26%20IE-8b5cf6?style=flat-square&labelColor=0f172a" />
     <img src="https://img.shields.io/badge/Status-Optimizing-06b6d4?style=flat-square&labelColor=0f172a" />
   </p>
-
-  <!-- Interactive Trophies Dashboard -->
-  <p align="center">
-    <img src="https://github-profile-trophy.vercel.app/?username=SercanOzkan55&theme=onedark&column=7" alt="Trophies" />
-  </p>
 </div>
 
 ---
