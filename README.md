@@ -1,17 +1,25 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=gradient:4f46e5,06b6d4&text=Sercan%20Özkan&fontSize=52&fontColor=ffffff&desc=Computer%20%26%20Industrial%20Engineering%20Student&descSize=16&descAlignY=65" width="100%"/>
+  <!-- Clean Gradient Waving Banner -->
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=gradient:4f46e5,06b6d4&text=Sercan%20Özkan&fontSize=52&fontColor=ffffff&desc=Computer%20%2F%20Industrial%20Engineering%20Student&descSize=16&descAlignY=65" width="100%"/>
 
   <br/>
 
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&duration=2500&pause=1000&color=06B6D4&center=true&vCenter=true&width=800&lines=Computer+Engineering+%26+Industrial+Engineering+Student;Building+AI-powered+tools+%26+automation;Designing+scalable+backend+architectures;Optimizing+complex+systems+%26+algorithms" alt="Typing SVG" />
+  <!-- Dynamic Typing SVG Roles -->
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&duration=2500&pause=1000&color=06B6D4&center=true&vCenter=true&width=800&lines=Computer+Engineering+%26+Industrial+Engineering;Building+AI-powered+tools+%26+automation;Designing+scalable+backend+architectures;Optimizing+complex+systems+%26+algorithms" alt="Typing SVG" />
 
   <br/>
 
+  <!-- Compact Professional Status Badges -->
   <p align="center">
     <img src="https://komarev.com/ghpvc/?username=SercanOzkan55&label=PROFILE+VIEWS&color=06b6d4&style=flat-square&labelColor=0f172a" />
     <img src="https://img.shields.io/badge/Focus-AI%20%26%20Backend-4f46e5?style=flat-square&labelColor=0f172a" />
     <img src="https://img.shields.io/badge/Dual%20Major-CE%20%26%20IE-8b5cf6?style=flat-square&labelColor=0f172a" />
     <img src="https://img.shields.io/badge/Status-Optimizing-06b6d4?style=flat-square&labelColor=0f172a" />
+  </p>
+
+  <!-- Interactive Trophies Dashboard -->
+  <p align="center">
+    <img src="https://github-profile-trophy.vercel.app/?username=SercanOzkan55&theme=darkhub&no-frame=true&column=7&margin-w=10" alt="Trophies" />
   </p>
 </div>
 
@@ -173,17 +181,23 @@ C:\WORKSPACE\SERCAN_ÖZKAN\
   <br/>
   
   <h4>Languages</h4>
-  [![Languages](https://skillicons.dev/icons?i=python,js,ts,cpp,java,html,css,php)](https://skillicons.dev)
+  <a href="https://skillicons.dev" target="_blank">
+    <img src="https://skillicons.dev/icons?i=python,js,ts,cpp,java,html,css,php" alt="Languages" />
+  </a>
   
-  <br/>
+  <br/><br/>
   
   <h4>Frameworks & Libraries</h4>
-  [![Frameworks](https://skillicons.dev/icons?i=react,nodejs,express,fastapi,flask)](https://skillicons.dev)
+  <a href="https://skillicons.dev" target="_blank">
+    <img src="https://skillicons.dev/icons?i=react,nodejs,express,fastapi,flask" alt="Frameworks & Libraries" />
+  </a>
   
-  <br/>
+  <br/><br/>
   
   <h4>Databases & Tools</h4>
-  [![Tools](https://skillicons.dev/icons?i=mysql,mongodb,sqlite,git,github,docker,linux,vscode)](https://skillicons.dev)
+  <a href="https://skillicons.dev" target="_blank">
+    <img src="https://skillicons.dev/icons?i=mysql,mongodb,sqlite,git,github,docker,linux,vscode" alt="Databases & Tools" />
+  </a>
 </div>
 
 ---
