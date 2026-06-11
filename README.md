@@ -27,7 +27,26 @@
 
 <div align="center">
   <h2>👋 About Me</h2>
-  <p>I am a double major student in <b>Computer Engineering</b> and <b>Industrial Engineering</b>. My core focus lies in the intersection of intelligent automation systems, backend service architectures, and operations optimization. I enjoy building modular applications, structuring optimized data pipelines, and designing clean, functional interfaces for complex developer workflows.</p>
+  <br/>
+  
+  <table width="95%" border="0" cellpadding="10">
+    <tr>
+      <!-- Profile Picture Column -->
+      <td width="30%" align="center" valign="middle">
+        <img src="https://github.com/SercanOzkan55.png" width="155px" style="border-radius: 50%; border: 3px solid #06b6d4; box-shadow: 0 4px 15px rgba(6, 182, 212, 0.25);" alt="Sercan Özkan"/>
+      </td>
+      <!-- Bio Details Column -->
+      <td width="70%" valign="top" align="left">
+        <h3 style="color:#06b6d4; margin-top:0;">🚀 Systems Engineer & Full-Stack Developer</h3>
+        <p style="line-height: 1.6; font-size: 0.95rem;">I am a double major student in <b>Computer Engineering</b> and <b>Industrial Engineering</b>. My core focus lies in the intersection of intelligent automation systems, backend service architectures, and operations optimization. I enjoy building modular applications, structuring optimized data pipelines, and designing clean, functional interfaces for complex developer workflows.</p>
+        <p style="line-height: 1.5; font-size: 0.9rem; color:#64748b;">
+          📍 <b>Location:</b> Istanbul, Turkey 🇹🇷 <br/>
+          🎓 <b>Education:</b> Istanbul Health and Technology University <br/>
+          ⚡ <b>Motto:</b> Write clean logic, optimize resource constraints, deliver polished UIs.
+        </p>
+      </td>
+    </tr>
+  </table>
 </div>
 
 <br/>
@@ -226,22 +245,33 @@ C:\WORKSPACE\SERCAN_ÖZKAN\
 ---
 
 <div align="center">
-  <h2>📈 GitHub Stats & Analytics</h2>
-
+  <h2>📈 GitHub Stats & Analytics Dashboard</h2>
+  <p style="color:#64748b; font-size: 0.95rem;">Real-time contribution statistics and activity patterns synced from GitHub metadata.</p>
+  
   <br/>
 
-  <p align="center">
-    <img width="49%" src="https://github-readme-stats-fast.vercel.app/api?username=SercanOzkan55&show_icons=true&hide_border=true&bg_color=0f172a&title_color=6366f1&icon_color=06b6d4&text_color=e2e8f0" />
-    <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=SercanOzkan55&hide_border=true&background=0f172a&ring=6366f1&fire=06b6d4&currStreakLabel=6366f1&sideLabels=06b6d4&dates=e2e8f0&sideNums=6366f1&currStreakNum=06b6d4" />
-  </p>
-
-  <p align="center">
-    <img width="48%" src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&hide_border=true&bg_color=0f172a&title_color=6366f1&text_color=e2e8f0" />
-  </p>
-
-  <p align="center">
-    <img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=SercanOzkan55&bg_color=0f172a&color=6366f1&line=06b6d4&point=e2e8f0&area=true&hide_border=true&area_color=8b5cf6" />
-  </p>
+  <table width="95%" cellpadding="8">
+    <tr>
+      <td width="50%" align="center" valign="top">
+        <h4 style="color:#6366f1; margin-bottom: 8px;">📊 Git Profile Summary</h4>
+        <img src="https://github-readme-stats-fast.vercel.app/api?username=SercanOzkan55&show_icons=true&hide_border=true&bg_color=0f172a&title_color=6366f1&icon_color=06b6d4&text_color=e2e8f0" width="100%" alt="Stats"/>
+      </td>
+      <td width="50%" align="center" valign="top">
+        <h4 style="color:#6366f1; margin-bottom: 8px;">🔥 Contribution Streak</h4>
+        <img src="https://github-readme-streak-stats.herokuapp.com/?user=SercanOzkan55&hide_border=true&background=0f172a&ring=6366f1&fire=06b6d4&currStreakLabel=6366f1&sideLabels=06b6d4&dates=e2e8f0&sideNums=6366f1&currStreakNum=06b6d4" width="100%" alt="Streak"/>
+      </td>
+    </tr>
+    <tr>
+      <td width="42%" align="center" valign="top">
+        <h4 style="color:#6366f1; margin-bottom: 8px;">🧪 Primary Languages</h4>
+        <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&hide_border=true&bg_color=0f172a&title_color=6366f1&text_color=e2e8f0" width="100%" alt="Languages"/>
+      </td>
+      <td width="58%" align="center" valign="top">
+        <h4 style="color:#6366f1; margin-bottom: 8px;">📈 Activity Trend Graph</h4>
+        <img src="https://github-readme-activity-graph.vercel.app/graph?username=SercanOzkan55&bg_color=0f172a&color=6366f1&line=06b6d4&point=e2e8f0&area=true&hide_border=true&area_color=8b5cf6" width="100%" alt="Activity"/>
+      </td>
+    </tr>
+  </table>
 </div>
 
 ---
