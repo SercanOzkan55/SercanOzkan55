@@ -19,7 +19,7 @@
 
   <!-- Interactive Trophies Dashboard -->
   <p align="center">
-    <img src="https://github-profile-trophy.vercel.app/?username=SercanOzkan55&theme=darkhub&no-frame=true&column=7&margin-w=10" alt="Trophies" />
+    <img src="https://github-profile-trophy.vercel.app/?username=SercanOzkan55&theme=onedark&column=7" alt="Trophies" />
   </p>
 </div>
 
@@ -143,54 +143,37 @@ C:\WORKSPACE\SERCAN_ÖZKAN\
 
 <div align="center">
   <h2>🚀 Featured Projects</h2>
-
-  <table width="90%">
-    <tr>
-      <td width="50%" valign="top">
-        <h4>📄 CV Analyzer</h4>
-        <p>An AI-powered resume parsing and ATS evaluation toolkit. Extracts density maps, computes semantic similarity vectors, and yields structured improvement feedback.</p>
-        <p>
-          <a href="https://github.com/SercanOzkan55/CV-Analyzer">
-            <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="Repo"/>
-          </a>
-        </p>
-        <p><code>Python</code> <code>FastAPI</code> <code>NLP</code> <code>SentenceTransformers</code> <code>SQLite</code></p>
-      </td>
-      <td width="50%" valign="top">
-        <h4>🍔 FoodApp</h4>
-        <p>A full-stack food ordering platform. Built with modular API structures, JWT auth middlewares, state controllers, and relational query optimization.</p>
-        <p>
-          <a href="https://github.com/SercanOzkan55/FoodApp">
-            <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="Repo"/>
-          </a>
-        </p>
-        <p><code>Node.js</code> <code>Express</code> <code>MongoDB</code> <code>REST API</code> <code>JWT</code></p>
-      </td>
-    </tr>
-    <tr>
-      <td width="50%" valign="top">
-        <h4>⏱️ CPU Scheduling Simulator</h4>
-        <p>Interactive scheduler visualizer illustrating OS algorithms (FIFO, SJF, SRTF, Round Robin, Priority) with dynamic comparison charts and performance logs.</p>
-        <p>
-          <a href="https://github.com/SercanOzkan55/CPU-Scheduling-Simulator">
-            <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="Repo"/>
-          </a>
-        </p>
-        <p><code>JavaScript</code> <code>HTML5</code> <code>CSS3</code> <code>Chart.js</code></p>
-      </td>
-      <td width="50%" valign="top">
-        <h4>🛡️ Secure AWS Bedrock Gateway</h4>
-        <p>Secure, EU-resident AWS Bedrock gateway architecture for 10 microservices. Integrates per-service IAM roles, real-time Redis quotas, and automated fallback loops.</p>
-        <p>
-          <a href="challenge-1-aws-bedrock-architecture.md">
-            <img src="https://img.shields.io/badge/Documentation-4F46E5?style=flat-square&logo=markdown&logoColor=white" alt="Doc"/>
-          </a>
-        </p>
-        <p><code>AWS Bedrock</code> <code>IAM</code> <code>Redis</code> <code>DynamoDB</code> <code>CloudWatch</code></p>
-      </td>
-    </tr>
-  </table>
 </div>
+
+#### 📄 [CV Analyzer](https://github.com/SercanOzkan55/CV-Analyzer)
+> **AI-powered resume parsing and ATS evaluation toolkit.**
+> Evaluates keyword density, calculates semantic similarity vectors, and provides structured improvement feedback.
+> 
+> `Python` `FastAPI` `NLP` `SentenceTransformers` `SQLite`
+
+---
+
+#### 🍔 [FoodApp](https://github.com/SercanOzkan55/FoodApp)
+> **Full-stack food ordering platform.**
+> Built with robust REST API endpoints, secure state controllers, JWT authentication, and relational query optimization.
+> 
+> `Node.js` `Express` `MongoDB` `REST API` `JWT`
+
+---
+
+#### ⏱️ [CPU Scheduling Simulator](https://github.com/SercanOzkan55/CPU-Scheduling-Simulator)
+> **Interactive CPU scheduling algorithm visualizer.**
+> Visualizes Operating System scheduling logic (FIFO, SJF, SRTF, Round Robin, Priority) with live comparison charts.
+> 
+> `JavaScript` `HTML5` `CSS3` `Chart.js`
+
+---
+
+#### 🛡️ [Secure AWS Bedrock Gateway](challenge-1-aws-bedrock-architecture.md)
+> **Multi-service AWS Bedrock gateway architecture.**
+> Implements least-privilege IAM roles, real-time Redis-based token budgets, and automated fallback loops.
+> 
+> `AWS Bedrock` `IAM` `Redis` `DynamoDB` `CloudWatch`
 
 ---
 
@@ -250,28 +233,15 @@ C:\WORKSPACE\SERCAN_ÖZKAN\
   
   <br/>
 
-  <table width="95%" cellpadding="8">
-    <tr>
-      <td width="50%" align="center" valign="top">
-        <h4 style="color:#6366f1; margin-bottom: 8px;">📊 Git Profile Summary</h4>
-        <img src="https://github-readme-stats-fast.vercel.app/api?username=SercanOzkan55&show_icons=true&hide_border=true&bg_color=0f172a&title_color=6366f1&icon_color=06b6d4&text_color=e2e8f0" width="100%" alt="Stats"/>
-      </td>
-      <td width="50%" align="center" valign="top">
-        <h4 style="color:#6366f1; margin-bottom: 8px;">🔥 Contribution Streak</h4>
-        <img src="https://github-readme-streak-stats.herokuapp.com/?user=SercanOzkan55&hide_border=true&background=0f172a&ring=6366f1&fire=06b6d4&currStreakLabel=6366f1&sideLabels=06b6d4&dates=e2e8f0&sideNums=6366f1&currStreakNum=06b6d4" width="100%" alt="Streak"/>
-      </td>
-    </tr>
-    <tr>
-      <td width="42%" align="center" valign="top">
-        <h4 style="color:#6366f1; margin-bottom: 8px;">🧪 Primary Languages</h4>
-        <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&hide_border=true&bg_color=0f172a&title_color=6366f1&text_color=e2e8f0" width="100%" alt="Languages"/>
-      </td>
-      <td width="58%" align="center" valign="top">
-        <h4 style="color:#6366f1; margin-bottom: 8px;">📈 Activity Trend Graph</h4>
-        <img src="https://github-readme-activity-graph.vercel.app/graph?username=SercanOzkan55&bg_color=0f172a&color=6366f1&line=06b6d4&point=e2e8f0&area=true&hide_border=true&area_color=8b5cf6" width="100%" alt="Activity"/>
-      </td>
-    </tr>
-  </table>
+  <p align="center">
+    <img width="49%" src="https://github-readme-stats-fast.vercel.app/api?username=SercanOzkan55&show_icons=true&hide_border=true&bg_color=0f172a&title_color=6366f1&icon_color=06b6d4&text_color=e2e8f0" alt="Stats Summary" />
+    <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=SercanOzkan55&hide_border=true&background=0f172a&ring=6366f1&fire=06b6d4&currStreakLabel=6366f1&sideLabels=06b6d4&dates=e2e8f0&sideNums=6366f1&currStreakNum=06b6d4" alt="Contribution Streak" />
+  </p>
+
+  <p align="center">
+    <img width="49%" src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=SercanOzkan55&layout=compact&hide_border=true&bg_color=0f172a&title_color=6366f1&text_color=e2e8f0" alt="Top Languages" />
+    <img width="49%" src="https://github-readme-activity-graph.vercel.app/graph?username=SercanOzkan55&bg_color=0f172a&color=6366f1&line=06b6d4&point=e2e8f0&area=true&hide_border=true&area_color=8b5cf6" alt="Activity Graph" />
+  </p>
 </div>
 
 ---
