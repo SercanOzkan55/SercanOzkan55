@@ -333,7 +333,7 @@ class CompilerEngine {
       if (currentScope.has(name)) {
         this.errors.push({
           phase: "Semantic",
-          message: `Variable '${name}' is already declared in this scope`,
+          message: `Variable '${name}' already declared`,
           line: line
         });
         return;
@@ -384,9 +384,11 @@ class CompilerEngine {
           if (err.phase) {
             this.errors.push(err);
             // Synchronize on semicolons or closing braces to continue parsing
-            advance();
-            while (peek() !== null && !check("DELIMITER", ";") && !check("DELIMITER", "}")) {
+            if (peek() !== null && !check("DELIMITER", ";") && !check("DELIMITER", "}")) {
               advance();
+              while (peek() !== null && !check("DELIMITER", ";") && !check("DELIMITER", "}")) {
+                advance();
+              }
             }
             if (check("DELIMITER", ";")) advance();
           } else {
@@ -430,7 +432,16 @@ class CompilerEngine {
     const parseDeclaration = () => {
       let typeToken = advance(); // int or float
       let idToken = consume("IDENTIFIER", null, "Expected variable name after type");
-      consume("DELIMITER", ";", "Expected ';' at the end of declaration");
+      if (!check("DELIMITER", ";")) {
+        let prev = previous();
+        throw {
+          phase: "Syntax",
+          message: "Expected ';' at end of statement",
+          line: prev ? prev.line : typeToken.line,
+          col: (prev ? prev.col : idToken.col) + 1
+        };
+      }
+      advance();
 
       declareVariable(idToken.value, typeToken.value, typeToken.line);
       let varRecord = lookupVariable(idToken.value);
@@ -451,21 +462,30 @@ class CompilerEngine {
       if (!varRecord) {
         this.errors.push({
           phase: "Semantic",
-          message: `Undeclared variable '${idToken.value}' used in assignment`,
+          message: `Undeclared variable '${idToken.value}'`,
           line: idToken.line
         });
       }
 
       consume("OPERATOR", "=", "Expected '=' in assignment");
       let expr = parseExpression();
-      consume("DELIMITER", ";", "Expected ';' after assignment");
+      if (!check("DELIMITER", ";")) {
+        let prev = previous();
+        throw {
+          phase: "Syntax",
+          message: "Expected ';' at end of statement",
+          line: prev ? prev.line : idToken.line,
+          col: (prev ? prev.col : idToken.col) + 1
+        };
+      }
+      advance();
 
       // Semantic Check: Type Checking
       if (varRecord && expr.evalType) {
         if (varRecord.type === "int" && expr.evalType === "float") {
           this.errors.push({
             phase: "Semantic",
-            message: `Type mismatch: cannot assign 'float' expression to 'int' variable '${idToken.value}'`,
+            message: `Type mismatch — cannot assign float to int`,
             line: idToken.line
           });
         } else if (varRecord.type === "int" && expr.evalType === "string") {
@@ -495,9 +515,28 @@ class CompilerEngine {
     // Selection ::= "if" "(" Expression ")" Block ElsePart
     const parseSelection = () => {
       let ifToken = advance(); // if
-      consume("DELIMITER", "(", "Expected '(' after 'if'");
+      let hasLParen = false;
+      if (check("DELIMITER", "(")) {
+        advance();
+        hasLParen = true;
+      } else {
+        this.errors.push({
+          phase: "Syntax",
+          message: "Expected '(' after 'if'",
+          line: ifToken.line,
+          col: ifToken.col
+        });
+      }
+      
       let cond = parseExpression();
-      consume("DELIMITER", ")", "Expected ')' after if condition");
+      
+      if (hasLParen) {
+        consume("DELIMITER", ")", "Expected ')' after if condition");
+      } else {
+        if (check("DELIMITER", ")")) {
+          advance();
+        }
+      }
       
       let thenBranch = parseBlock();
       let elseBranch = null;
@@ -507,7 +546,7 @@ class CompilerEngine {
       }
 
       // Semantic check: condition must be convertible to boolean (non-string)
-      if (cond.evalType === "string") {
+      if (cond && cond.evalType === "string") {
         this.errors.push({
           phase: "Semantic",
           message: "Condition in 'if' statement must be a numeric or logical expression, not string",
@@ -527,13 +566,32 @@ class CompilerEngine {
     // Iteration ::= "while" "(" Expression ")" Block
     const parseIteration = () => {
       let whileToken = advance(); // while
-      consume("DELIMITER", "(", "Expected '(' after 'while'");
+      let hasLParen = false;
+      if (check("DELIMITER", "(")) {
+        advance();
+        hasLParen = true;
+      } else {
+        this.errors.push({
+          phase: "Syntax",
+          message: "Expected '(' after 'while'",
+          line: whileToken.line,
+          col: whileToken.col
+        });
+      }
+      
       let cond = parseExpression();
-      consume("DELIMITER", ")", "Expected ')' after while condition");
+      
+      if (hasLParen) {
+        consume("DELIMITER", ")", "Expected ')' after while condition");
+      } else {
+        if (check("DELIMITER", ")")) {
+          advance();
+        }
+      }
       let body = parseBlock();
 
       // Semantic check: condition must be convertible to boolean (non-string)
-      if (cond.evalType === "string") {
+      if (cond && cond.evalType === "string") {
         this.errors.push({
           phase: "Semantic",
           message: "Condition in 'while' loop must be a numeric or logical expression, not string",
@@ -565,7 +623,16 @@ class CompilerEngine {
       }
       
       consume("DELIMITER", ")", "Expected ')' after print argument");
-      consume("DELIMITER", ";", "Expected ';' after print statement");
+      if (!check("DELIMITER", ";")) {
+        let prev = previous();
+        throw {
+          phase: "Syntax",
+          message: "Expected ';' at end of statement",
+          line: prev ? prev.line : printToken.line,
+          col: (prev ? prev.col : printToken.col) + 1
+        };
+      }
+      advance();
 
       return {
         type: "PrintStatement",
@@ -800,7 +867,7 @@ class CompilerEngine {
         if (!varRecord) {
           this.errors.push({
             phase: "Semantic",
-            message: `Undeclared variable '${t.value}' used in expression`,
+            message: `Undeclared variable '${t.value}'`,
             line: t.line
           });
         }
