@@ -32,7 +32,7 @@
       </td>
       <td width="72%" valign="top" align="left">
         <h3>🚀 Systems Engineer & Full-Stack Developer</h3>
-        <p>I am a double major student in <b>Computer Engineering</b> and <b>Industrial Engineering</b>. My core focus lies in the intersection of intelligent automation systems, backend service architectures, and operations optimization. I enjoy building modular applications, structuring optimized data pipelines, and designing clean, functional interfaces for complex developer workflows.</p>
+        <p>I am a main major student in <b>Computer Engineering</b> and <b>Industrial Engineering</b>. My core focus lies in the intersection of intelligent automation systems, backend service architectures, and operations optimization. I enjoy building modular applications, structuring optimized data pipelines, and designing clean, functional interfaces for complex developer workflows.</p>
         <p>
           📍 <b>Location:</b> Istanbul, Turkey 🇹🇷 <br/>
           🎓 <b>Education:</b> Istanbul Health and Technology University <br/>
@@ -54,7 +54,7 @@
 candidate:
   name: Sercan Özkan
   education:
-    - B.S. Computer Engineering (Double Major)
+    - B.S. Computer Engineering (Main Major)
     - B.S. Industrial Engineering (Double Major)
   location: Istanbul, Turkey 🇹🇷
   core_focus:
